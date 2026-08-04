@@ -21,7 +21,7 @@
     <div id="root"></div>
     <script>
       document.addEventListener('click', function (e) {
-        var target = e.target.closest('[data-testid$="-cta-quote"], [data-testid="services-final-cta"]');
+        var target = e.target.closest('a[data-testid*="cta"][href="#"]');
         if (!target) return;
         e.preventDefault();
         e.stopPropagation();
