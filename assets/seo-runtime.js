@@ -12,18 +12,18 @@
   var EMAIL_TO = "info@theaccessoryconsultant.com";
 
   var PHRASES = [
-    ["NDA available on request", "NDAs offered for private label and OEM"],
+    ["NDA available on request", "NDAs are available for private-label and OEM programs"],
     [
       "Free consultation · NDA available · MOQ from 50 units",
       "Free consultation · NDAs for private label and OEM · MOQ from 50 units per design",
     ],
     [
       "Our minimum order quantity varies by product type, starting as low as 50 pieces for silver jewelry and 25 pieces for gold jewelry, making us perfect for startups and small businesses.",
-      "Minimum order is from 50 units per design.",
+      "MOQ starts from 50 units. Exact MOQ can depend on style complexity, materials, and stones; we confirm this when quoting.",
     ],
     [
       "Production timelines range from 2-4 weeks for simple designs to 6-8 weeks for complex custom pieces, including sample approval and quality control processes.",
-      "CAD-to-delivery is about 18 days.",
+      "Typical CAD-to-delivery is about 18 days. Timelines depend on design complexity, materials, stones, sampling revisions, and order size. International shipping time to the US (or other countries) is separate from factory CAD-to-delivery and is confirmed once destination and method are known.",
     ],
     [
       "Production timelines vary based on complexity, quantity, and material requirements.",

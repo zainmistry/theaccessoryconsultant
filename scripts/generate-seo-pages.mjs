@@ -12,6 +12,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { ARTICLE_CSS, PUBLISHED_ON, loadApprovedCopy, markdownToHtml, renderCrawlablePage } from "./approved-copy.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
@@ -37,7 +38,13 @@ const OFFER_DESCRIPTION =
   "The Accessory Consultant is an export jewelry manufacturer for US brands, D2C labels, and wholesalers. The factory is in Mumbai. MOQ from 50 units per design. About 18-day CAD-to-delivery. NDAs offered for private label and OEM.";
 
 function withOffer(description) {
-  if (description.includes("50 units per design")) return description;
+  if (
+    description.includes("50 units per design") ||
+    description.includes("MOQ from 50") ||
+    description.includes("Low MOQ from 50")
+  ) {
+    return description;
+  }
   return `${description} ${OFFER_META}`;
 }
 
@@ -79,11 +86,10 @@ const staticPages = [
   },
   {
     path: "/services",
-    title: `Manufacturing Services | ${BRAND}`,
-    description: withOffer(
-      "Comprehensive jewelry manufacturing services covering all materials, stones, and design requirements. From concept to creation, we bring your vision to life."
-    ),
+    title: "Manufacturing Services | placeholder",
+    description: "placeholder",
     h1: "Our Manufacturing Services",
+    skipOffer: true,
   },
   {
     path: "/blogs",
@@ -109,10 +115,10 @@ const staticPages = [
   },
   {
     path: "/get-quote",
-    title: `Get a Free Quote | ${BRAND}`,
-    description:
-      "Request a production quote for your US brand, D2C label, or wholesale line. Made at our Mumbai factory. MOQ from 50 units per design, about 18-day CAD-to-delivery. NDAs offered for private label and OEM.",
+    title: "Get a Free Quote | placeholder",
+    description: "placeholder",
     h1: "Turn Your Jewelry Designs Into Finished Products",
+    skipOffer: true,
   },
   {
     path: "/process",
@@ -230,8 +236,18 @@ const staticPages = [
   },
 ];
 
+const approved = loadApprovedCopy(path.join(root, "content/seo"));
+const servicesPage = staticPages.find((page) => page.path === "/services");
+servicesPage.title = approved.services.metaTitle;
+servicesPage.description = approved.services.metaDescription;
+servicesPage.supplement = `<style>${ARTICLE_CSS}</style>\n${approved.services.html}`;
+const quotePage = staticPages.find((page) => page.path === "/get-quote");
+quotePage.title = approved.quote.metaTitle;
+quotePage.description = approved.quote.metaDescription;
+quotePage.supplement = `<style>${ARTICLE_CSS}</style>\n${approved.quote.html}`;
+
 for (const page of staticPages) {
-  if (page.path === "/blogs" || page.path === "/case-studies") continue;
+  if (page.path === "/blogs" || page.path === "/case-studies" || page.skipOffer) continue;
   page.description = withOffer(page.description);
 }
 
@@ -421,7 +437,7 @@ function renderPage(page) {
         <p class="text-xl text-muted-foreground max-w-4xl">${esc(lead)}</p>
       </main>
     </div>
-    <script src="/assets/seo-routes.js"></script>
+    ${page.supplement ? `${page.supplement}\n    ` : ""}<script src="/assets/seo-routes.js"></script>
     <script src="/assets/seo-runtime.js"></script>
     <script>
       document.addEventListener('click', function (e) {
@@ -533,9 +549,119 @@ function buildPages() {
     });
   }
 
-  const paths = pages.map((page) => page.path);
-  if (new Set(paths).size !== paths.length) {
-    throw new Error("Duplicate page paths in SEO page set");
+  return pages;
+}
+
+function crawlableShell(page, bodyMarkdown, { ogType, blogPosting }) {
+  const canonical = canonicalFor(page.path);
+  return renderCrawlablePage({
+    origin: ORIGIN,
+    brand: BRAND,
+    phoneDisplay: PHONE_DISPLAY,
+    phoneE164: PHONE_E164,
+    email: EMAIL,
+    cssHref: assetCss,
+    ogImage: OG_IMAGE_PATH,
+    ogAlt: OG_IMAGE_ALT,
+    ogWidth: OG_IMAGE_WIDTH,
+    ogHeight: OG_IMAGE_HEIGHT,
+    adsId,
+    title: page.title,
+    description: page.description,
+    canonical,
+    bodyHtml: markdownToHtml(bodyMarkdown),
+    robots: "index, follow",
+    ogType,
+    jsonLd: organizationGraph(canonical, {
+      title: page.title,
+      description: page.description,
+      pageType: "WebPage",
+      blogPosting,
+    }),
+  });
+}
+
+function approvedPages() {
+  const pages = approved.pillars.map((pillar) => ({
+    path: pillar.path,
+    title: pillar.metaTitle,
+    description: pillar.metaDescription,
+    indexable: true,
+    lastmod: PUBLISHED_ON,
+    ogType: "article",
+    crawlableHtml: crawlableShell(
+      { path: pillar.path, title: pillar.metaTitle, description: pillar.metaDescription },
+      pillar.markdown,
+      {
+        ogType: "article",
+        blogPosting: {
+          "@type": "BlogPosting",
+          headline: pillar.h1,
+          description: pillar.metaDescription,
+          datePublished: PUBLISHED_ON,
+          image: `${ORIGIN}${OG_IMAGE_PATH}`,
+          author: { "@id": `${ORIGIN}/#organization` },
+          publisher: { "@id": `${ORIGIN}/#organization` },
+          mainEntityOfPage: canonicalFor(pillar.path),
+        },
+      },
+    ),
+  }));
+
+  const hubs = [
+    {
+      path: "/jewelry",
+      title: "Jewelry Categories | The Accessory Consultant",
+      description:
+        "Jewelry materials we manufacture for US brands: solid gold, gold filled, vermeil, plated, silver, and stainless steel. Factory in Mumbai.",
+      markdown: `# Jewelry we manufacture
+
+The Accessory Consultant manufactures custom jewelry for US brands, D2C labels, wholesalers, retailers, and individuals. Production is at our factory in Mumbai. MOQ starts from 50 units. Typical CAD-to-delivery is about 18 days. NDAs are available for private-label and OEM programs.
+
+Materials we work with:
+
+- [Solid gold](/jewelry/solid-gold)
+- [Gold filled](/jewelry/gold-filled)
+- [Gold vermeil](/jewelry/gold-vermeil)
+- [Gold plated](/jewelry/gold-plated)
+- [Silver](/jewelry/silver)
+- [Stainless steel](/jewelry/stainless-steel)
+
+Quote requests often name earrings, rings, necklaces, bracelets, or sets. Those product types are made in the material lines above.
+
+See [Process](/process) for CAD, sampling, and production, or [Services](/services) and [Get a quote](/get-quote) to brief a program.`,
+    },
+    {
+      path: "/stones",
+      title: "Stone Options | The Accessory Consultant",
+      description:
+        "Stone options for custom jewelry: natural diamonds, lab-grown diamonds, precious, semi-precious, and artificial stones. Mumbai factory.",
+      markdown: `# Stone options
+
+Stone options are available for jewelry we manufacture for US brands, D2C labels, and wholesalers. Production is at our factory in Mumbai.
+
+- [Natural diamonds](/stones/natural-diamonds)
+- [Lab-grown diamonds](/stones/lab-grown-diamonds)
+- [Precious stones](/stones/precious-stones)
+- [Semi-precious stones](/stones/semi-precious-stones)
+- [Artificial stones](/stones/artificial-stones)
+
+See [Jewelry](/jewelry) for materials and [Get a quote](/get-quote) to include stone direction in a brief.`,
+    },
+  ];
+
+  for (const hub of hubs) {
+    if (hub.title.length > 60) throw new Error(`Hub title too long: ${hub.title}`);
+    if (hub.description.length > 155) throw new Error(`Hub description too long: ${hub.description}`);
+    pages.push({
+      path: hub.path,
+      title: hub.title,
+      description: hub.description,
+      indexable: true,
+      lastmod: PUBLISHED_ON,
+      ogType: "website",
+      crawlableHtml: crawlableShell(hub, hub.markdown, { ogType: "website" }),
+    });
   }
   return pages;
 }
@@ -553,13 +679,17 @@ function loadPreviousManifest() {
   return JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 }
 
-const pages = buildPages();
+const pages = buildPages().concat(approvedPages());
+const pagePaths = pages.map((page) => page.path);
+if (new Set(pagePaths).size !== pagePaths.length) {
+  throw new Error("Duplicate page paths in SEO page set");
+}
 const previous = new Set(loadPreviousManifest());
 const generated = [];
 
 for (const page of pages) {
   const relativePath = fileForPath(page.path);
-  writeFile(relativePath, renderPage(page));
+  writeFile(relativePath, page.crawlableHtml || renderPage(page));
   generated.push(relativePath);
 }
 

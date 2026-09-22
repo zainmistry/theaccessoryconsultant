@@ -31,7 +31,17 @@ const www = (vercel.redirects || []).find(
 if (!www || www.statusCode !== 301 || !String(www.destination).startsWith("https://theaccessoryconsultant.com/")) {
   fail("missing 301 from www.theaccessoryconsultant.com to the apex host");
 }
-for (const source of ["/about-us", "/about-us/", "/how-it-works", "/how-it-works/"]) {
+for (const source of [
+  "/about-us",
+  "/about-us/",
+  "/how-it-works",
+  "/how-it-works/",
+  "/jewelry/earrings",
+  "/jewelry/rings",
+  "/jewelry/necklaces",
+  "/jewelry/bracelets",
+  "/jewelry/sets",
+]) {
   const rule = (vercel.redirects || []).find((item) => item.source === source);
   if (!rule || rule.statusCode !== 301) fail(`missing 301 for ${source}`);
 }
@@ -46,7 +56,25 @@ const sitemap = read("sitemap.xml");
 if (!sitemap.startsWith("<?xml")) fail("sitemap.xml is not XML");
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 if (new Set(locs).size !== locs.length) fail("sitemap has duplicate URLs");
-if (locs.some((loc) => loc.includes("/blogs/"))) fail("templated blog posts should not be in the sitemap");
+if (locs.some((loc) => /\/blogs\/\d+$/.test(loc))) fail("templated blog posts should not be in the sitemap");
+const pillarPaths = [
+  "/blogs/custom-jewelry-manufacturer-for-us-brands",
+  "/blogs/private-label-jewelry-manufacturer-for-us-brands",
+  "/blogs/oem-odm-jewelry-manufacturer-for-us-brands",
+  "/blogs/low-moq-jewelry-manufacturer-for-us-startups",
+  "/blogs/jewelry-cad-manufacturing-for-brand-development",
+  "/blogs/gold-vermeil-manufacturer-for-us-brands",
+  "/blogs/gold-filled-manufacturer-for-us-d2c-brands",
+  "/blogs/jewelry-manufacturer-for-d2c-brands-us",
+  "/blogs/solid-gold-silver-custom-manufacturing-for-us-brands",
+  "/blogs/how-to-get-a-jewelry-manufacturing-quote-rfq-guide-us",
+];
+for (const pillar of pillarPaths) {
+  if (!locs.includes(`https://theaccessoryconsultant.com${pillar}`)) fail(`sitemap missing ${pillar}`);
+}
+for (const hub of ["/jewelry", "/stones"]) {
+  if (!locs.includes(`https://theaccessoryconsultant.com${hub}`)) fail(`sitemap missing ${hub}`);
+}
 if (!locs.includes("https://theaccessoryconsultant.com/")) fail("sitemap missing homepage");
 for (const required of [
   "/about",
@@ -113,6 +141,62 @@ if (!contact.includes("+91 9152727387")) fail("contact shell missing display pho
 if (contact.includes("jewelcraft") || contact.includes("123 456 7890")) fail("contact shell still has placeholders");
 if (!blog.includes("noindex, follow")) fail("templated blog post should be noindex, follow");
 if (blog.includes('content="index, follow"')) fail("blog post marked indexable");
+if (!fs.existsSync(path.join(root, "blogs/205.html"))) fail("templated blog 205 was removed");
+
+const services = read("services.html");
+const quote = read("get-quote.html");
+if (!services.includes("Private Label &amp; OEM Jewelry Manufacturing for Brands")) {
+  fail("services title is not the approved meta title");
+}
+if (!services.includes("Low MOQ from 50. CAD to delivery ~18 days. Mumbai factory. NDA available.")) {
+  fail("services description is not the approved meta description");
+}
+if (!services.includes("Custom Jewelry Manufacturer for Brands, Private Label &amp; OEM")) {
+  fail("services shell is missing the approved H1");
+}
+if (!services.includes("MOQ starts from 50 units. Exact MOQ can depend on style complexity")) {
+  fail("services shell is missing the approved MOQ FAQ");
+}
+if (!services.includes('type="module"')) fail("services page dropped the quote-form SPA");
+const servicesRoot = services.indexOf('<div id="root">');
+const servicesArticle = services.indexOf('data-seo-approved="true"');
+if (servicesRoot < 0 || servicesArticle < servicesRoot) fail("approved services copy must stay outside #root");
+
+if (!quote.includes("Request a Custom Jewelry Manufacturing Quote")) fail("get-quote is missing the approved headline");
+if (!quote.includes("Shipping country / delivery destination")) fail("get-quote is missing the RFQ checklist");
+if (!quote.includes("+91 9152727387")) fail("get-quote is missing the phone number");
+if (!quote.includes('type="module"')) fail("get-quote page dropped the quote form SPA");
+if (quote.includes("streetAddress")) fail("get-quote invented a street address");
+
+if (!homeTitle.includes("US Brands")) fail("homepage title is not aimed at US brands");
+
+const study = read("case-studies/1.html");
+if (!study.includes('content="index, follow"')) fail("case study 1 must stay indexable");
+if (!study.includes("Luxury Engagement Ring Collection Launch")) fail("case study 1 title changed");
+if (!study.includes("natural diamonds and solid gold settings")) fail("case study 1 lead changed");
+
+const runtime = read("assets/seo-runtime.js");
+if (!runtime.includes("MOQ starts from 50 units. Exact MOQ can depend on style complexity")) {
+  fail("contact FAQ MOQ replacement is missing");
+}
+if (!runtime.includes("International shipping time to the US")) fail("contact FAQ timeline replacement is missing");
+if (!runtime.includes("NDAs are available for private-label and OEM programs")) fail("NDA replacement is missing");
+
+for (const pillar of pillarPaths) {
+  const file = `${pillar.replace(/^\//, "")}.html`;
+  const html = read(file);
+  if (html.includes('type="module"')) fail(`${pillar} loaded the SPA bundle`);
+  if (!html.includes('content="index, follow"')) fail(`${pillar} is not indexable`);
+  if (!html.includes("<h1>")) fail(`${pillar} missing h1`);
+  if (html.includes("Factual audit") || html.includes("Word count")) fail(`${pillar} published production notes`);
+  if (html.includes("streetAddress")) fail(`${pillar} invented a street address`);
+  if (!html.includes("SPA router gap")) fail(`${pillar} missing router-gap note`);
+}
+for (const hub of ["jewelry.html", "stones.html"]) {
+  const html = read(hub);
+  if (html.includes('type="module"')) fail(`${hub} loaded the SPA bundle`);
+  if (!html.includes('content="index, follow"')) fail(`${hub} is not indexable`);
+}
 if (!notFound.includes('content="noindex"')) fail("404.html must be noindex");
 if (notFound.includes("seo-runtime") || notFound.includes("index-BdRfLf-F.js")) {
   fail("404.html should not boot the SPA");

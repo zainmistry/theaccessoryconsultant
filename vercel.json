@@ -16,7 +16,17 @@
     { "source": "/about-us", "destination": "/about", "statusCode": 301 },
     { "source": "/about-us/", "destination": "/about", "statusCode": 301 },
     { "source": "/how-it-works", "destination": "/process", "statusCode": 301 },
-    { "source": "/how-it-works/", "destination": "/process", "statusCode": 301 }
+    { "source": "/how-it-works/", "destination": "/process", "statusCode": 301 },
+    { "source": "/jewelry/earrings", "destination": "/jewelry", "statusCode": 301 },
+    { "source": "/jewelry/earrings/", "destination": "/jewelry", "statusCode": 301 },
+    { "source": "/jewelry/rings", "destination": "/jewelry", "statusCode": 301 },
+    { "source": "/jewelry/rings/", "destination": "/jewelry", "statusCode": 301 },
+    { "source": "/jewelry/necklaces", "destination": "/jewelry", "statusCode": 301 },
+    { "source": "/jewelry/necklaces/", "destination": "/jewelry", "statusCode": 301 },
+    { "source": "/jewelry/bracelets", "destination": "/jewelry", "statusCode": 301 },
+    { "source": "/jewelry/bracelets/", "destination": "/jewelry", "statusCode": 301 },
+    { "source": "/jewelry/sets", "destination": "/jewelry", "statusCode": 301 },
+    { "source": "/jewelry/sets/", "destination": "/jewelry", "statusCode": 301 }
   ],
   "headers": [
     {
