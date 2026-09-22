@@ -26,6 +26,17 @@ const OG_IMAGE_ALT = "Jewelry artisans at work in Mumbai";
 const OG_IMAGE_WIDTH = 1920;
 const OG_IMAGE_HEIGHT = 1235;
 
+/** Owner-confirmed commercial facts. Do not add other quantities, timelines, or addresses. */
+const OFFER_META =
+  "MOQ from 50 units per design, about 18-day CAD-to-delivery. NDAs offered for private label and OEM.";
+const OFFER_DESCRIPTION =
+  "The Accessory Consultant is a custom jewelry manufacturer in Mumbai. MOQ from 50 units per design. About 18-day CAD-to-delivery. NDAs offered for private label and OEM.";
+
+function withOffer(description) {
+  if (description.includes("50 units per design")) return description;
+  return `${description} ${OFFER_META}`;
+}
+
 /**
  * Individual posts are a shared template (see generate-blog-data.mjs).
  * They stay reachable so the SPA route does not 404, but they are
@@ -52,21 +63,23 @@ const staticPages = [
     path: "/",
     title: "The Accessory Consultant | Custom Jewelry Manufacturing in Mumbai",
     description:
-      "We manufacture custom jewelry for wholesalers, D2C brands, and retailers worldwide — from CAD to finished piece, MOQ 50 units, delivery in as few as 18 days.",
+      "Custom jewelry manufacturing in Mumbai for brands, wholesalers, and private label. MOQ from 50 units per design, about 18-day CAD-to-delivery. NDAs offered for private label and OEM.",
     h1: "Custom Jewelry Made for Brands That Scale",
   },
   {
     path: "/about",
     title: `About ${BRAND} | Mumbai Jewelry Manufacturer`,
-    description:
-      "Premier jewelry manufacturer in Mumbai, India, serving clients worldwide with exceptional craftsmanship and quality since our establishment.",
+    description: withOffer(
+      "Premier jewelry manufacturer in Mumbai, India, serving clients worldwide with exceptional craftsmanship and quality since our establishment."
+    ),
     h1: "About The Accessory Consultant Manufacturing",
   },
   {
     path: "/services",
     title: `Manufacturing Services | ${BRAND}`,
-    description:
-      "Comprehensive jewelry manufacturing services covering all materials, stones, and design requirements. From concept to creation, we bring your vision to life.",
+    description: withOffer(
+      "Comprehensive jewelry manufacturing services covering all materials, stones, and design requirements. From concept to creation, we bring your vision to life."
+    ),
     h1: "Our Manufacturing Services",
   },
   {
@@ -86,7 +99,9 @@ const staticPages = [
   {
     path: "/contact",
     title: `Contact ${BRAND} | Mumbai`,
-    description: `Contact The Accessory Consultant in Mumbai for a manufacturing consultation. Call ${PHONE_DISPLAY} or email ${EMAIL}.`,
+    description: withOffer(
+      `Contact The Accessory Consultant in Mumbai for a manufacturing consultation. Call ${PHONE_DISPLAY} or email ${EMAIL}.`
+    ),
     h1: "Get in Touch with Us",
     lead: `Ready to bring your jewelry vision to life? Call ${PHONE_DISPLAY} or email ${EMAIL}. Mumbai, Maharashtra, India.`,
     pageType: "ContactPage",
@@ -94,22 +109,25 @@ const staticPages = [
   {
     path: "/get-quote",
     title: `Get a Free Quote | ${BRAND}`,
-    description:
-      "Get a free manufacturing quote from Mumbai's premier jewelry manufacturer. MOQ 50 units, 18-day turnaround, ships worldwide.",
+    description: withOffer(
+      "Get a free manufacturing quote from Mumbai's jewelry manufacturing team. Ships worldwide."
+    ),
     h1: "Turn Your Jewelry Designs Into Finished Products",
   },
   {
     path: "/process",
     title: `Manufacturing Process | ${BRAND}`,
-    description:
-      "From initial consultation to final delivery, we ensure excellence at every step of your jewelry creation journey. Our proven 4-step process guarantees quality results and client satisfaction.",
+    description: withOffer(
+      "From initial consultation to final delivery, we ensure excellence at every step of your jewelry creation journey."
+    ),
     h1: "Our Manufacturing Process",
   },
   {
     path: "/process/consultation",
     title: `Consultation | ${BRAND}`,
-    description:
-      "Understanding your vision, requirements, and specifications through detailed consultation sessions. Our expert team guides you through every aspect of jewelry manufacturing.",
+    description: withOffer(
+      "Understanding your vision, requirements, and specifications through detailed consultation sessions."
+    ),
     h1: "Expert Consultation Services",
   },
   {
@@ -212,6 +230,11 @@ const staticPages = [
   },
 ];
 
+for (const page of staticPages) {
+  if (page.path === "/blogs" || page.path === "/case-studies") continue;
+  page.description = withOffer(page.description);
+}
+
 function loadCaseStudies() {
   const bundle = fs.readFileSync(path.join(root, assetJs.replace(/^\//, "")), "utf8");
   const re =
@@ -264,6 +287,12 @@ function jsonLdScript(value) {
   return JSON.stringify(value).replace(/</g, "\\u003c");
 }
 
+const offerFacts = [
+  { "@type": "PropertyValue", name: "Minimum order quantity", value: "50 units per design" },
+  { "@type": "PropertyValue", name: "CAD-to-delivery", value: "About 18 days" },
+  { "@type": "PropertyValue", name: "NDA", value: "Offered for private label and OEM" },
+];
+
 function organizationGraph(pageUrl, page) {
   const graph = [
     {
@@ -271,6 +300,7 @@ function organizationGraph(pageUrl, page) {
       "@id": `${ORIGIN}/#organization`,
       name: BRAND,
       url: `${ORIGIN}/`,
+      description: OFFER_DESCRIPTION,
       logo: `${ORIGIN}/assets/favicon-192.png`,
       email: EMAIL,
       telephone: PHONE_E164,
@@ -280,12 +310,14 @@ function organizationGraph(pageUrl, page) {
         addressRegion: "Maharashtra",
         addressCountry: "IN",
       },
+      additionalProperty: offerFacts,
     },
     {
       "@type": "LocalBusiness",
       "@id": `${ORIGIN}/#localbusiness`,
       name: BRAND,
       url: `${ORIGIN}/`,
+      description: OFFER_DESCRIPTION,
       image: `${ORIGIN}${OG_IMAGE_PATH}`,
       email: EMAIL,
       telephone: PHONE_E164,
@@ -296,6 +328,7 @@ function organizationGraph(pageUrl, page) {
         addressCountry: "IN",
       },
       areaServed: "Worldwide",
+      additionalProperty: offerFacts,
       parentOrganization: { "@id": `${ORIGIN}/#organization` },
     },
     {

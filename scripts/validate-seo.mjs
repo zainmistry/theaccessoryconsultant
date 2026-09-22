@@ -93,6 +93,9 @@ for (const [name, html] of [
   if (!html.includes('application/ld+json')) fail(`${name} missing JSON-LD`);
   if (!html.includes("+919152727387")) fail(`${name} JSON-LD missing phone`);
   if (!html.includes("info@theaccessoryconsultant.com")) fail(`${name} missing email`);
+  if (!html.includes("50 units per design")) fail(`${name} missing confirmed MOQ`);
+  if (!html.includes("About 18 days")) fail(`${name} missing confirmed turnaround`);
+  if (!html.includes("private label and OEM")) fail(`${name} missing confirmed NDA`);
   if (!html.includes('"addressLocality":"Mumbai"')) fail(`${name} missing Mumbai locality`);
   if (/"streetAddress"/.test(html)) fail(`${name} invented a street address`);
   if (!html.includes("<h1")) fail(`${name} missing h1`);
