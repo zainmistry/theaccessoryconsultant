@@ -26,11 +26,15 @@ const OG_IMAGE_ALT = "Jewelry artisans at work in Mumbai";
 const OG_IMAGE_WIDTH = 1920;
 const OG_IMAGE_HEIGHT = 1235;
 
-/** Owner-confirmed commercial facts. Do not add other quantities, timelines, or addresses. */
+/**
+ * Commercial facts the owner confirmed. Messaging we add is for US brands,
+ * D2C labels, and wholesalers. Mumbai stays the factory location, not the
+ * search market. Do not add street addresses, plating specs, or case-study metrics.
+ */
 const OFFER_META =
-  "MOQ from 50 units per design, about 18-day CAD-to-delivery. NDAs offered for private label and OEM.";
+  "For US brands, D2C labels, and wholesalers. MOQ from 50 units per design, about 18-day CAD-to-delivery from our Mumbai factory. NDAs offered for private label and OEM.";
 const OFFER_DESCRIPTION =
-  "The Accessory Consultant is a custom jewelry manufacturer in Mumbai. MOQ from 50 units per design. About 18-day CAD-to-delivery. NDAs offered for private label and OEM.";
+  "The Accessory Consultant is an export jewelry manufacturer for US brands, D2C labels, and wholesalers. The factory is in Mumbai. MOQ from 50 units per design. About 18-day CAD-to-delivery. NDAs offered for private label and OEM.";
 
 function withOffer(description) {
   if (description.includes("50 units per design")) return description;
@@ -61,17 +65,16 @@ const adsSendTo = requiredMatch(shellHtml, /__GOOGLE_ADS_SEND_TO__ = "([^"]+)"/,
 const staticPages = [
   {
     path: "/",
-    title: "The Accessory Consultant | Custom Jewelry Manufacturing in Mumbai",
+    title: "The Accessory Consultant | Custom Jewelry Manufacturing for US Brands",
     description:
-      "Custom jewelry manufacturing in Mumbai for brands, wholesalers, and private label. MOQ from 50 units per design, about 18-day CAD-to-delivery. NDAs offered for private label and OEM.",
+      "Custom jewelry manufacturer for US brands, D2C labels, and wholesalers. Factory in Mumbai. MOQ from 50 units per design, about 18-day CAD-to-delivery. NDAs offered for private label and OEM.",
     h1: "Custom Jewelry Made for Brands That Scale",
   },
   {
     path: "/about",
-    title: `About ${BRAND} | Mumbai Jewelry Manufacturer`,
-    description: withOffer(
-      "Premier jewelry manufacturer in Mumbai, India, serving clients worldwide with exceptional craftsmanship and quality since our establishment."
-    ),
+    title: `About ${BRAND} | Jewelry Manufacturer for US Brands`,
+    description:
+      "Export jewelry manufacturing for US brands, D2C labels, and wholesalers, produced at our Mumbai factory. MOQ from 50 units per design, about 18-day CAD-to-delivery. NDAs offered for private label and OEM.",
     h1: "About The Accessory Consultant Manufacturing",
   },
   {
@@ -98,20 +101,17 @@ const staticPages = [
   },
   {
     path: "/contact",
-    title: `Contact ${BRAND} | Mumbai`,
-    description: withOffer(
-      `Contact The Accessory Consultant in Mumbai for a manufacturing consultation. Call ${PHONE_DISPLAY} or email ${EMAIL}.`
-    ),
+    title: `Contact ${BRAND} | Manufacturing for US Brands`,
+    description: `Talk with our Mumbai factory about production for your US brand, D2C label, or wholesale line. Call ${PHONE_DISPLAY} or email ${EMAIL}. MOQ from 50 units per design, about 18-day CAD-to-delivery. NDAs offered for private label and OEM.`,
     h1: "Get in Touch with Us",
-    lead: `Ready to bring your jewelry vision to life? Call ${PHONE_DISPLAY} or email ${EMAIL}. Mumbai, Maharashtra, India.`,
+    lead: `Production quotes for US brands, D2C labels, and wholesalers. Call ${PHONE_DISPLAY} or email ${EMAIL}. Factory in Mumbai, Maharashtra, India.`,
     pageType: "ContactPage",
   },
   {
     path: "/get-quote",
     title: `Get a Free Quote | ${BRAND}`,
-    description: withOffer(
-      "Get a free manufacturing quote from Mumbai's jewelry manufacturing team. Ships worldwide."
-    ),
+    description:
+      "Request a production quote for your US brand, D2C label, or wholesale line. Made at our Mumbai factory. MOQ from 50 units per design, about 18-day CAD-to-delivery. NDAs offered for private label and OEM.",
     h1: "Turn Your Jewelry Designs Into Finished Products",
   },
   {
@@ -327,7 +327,7 @@ function organizationGraph(pageUrl, page) {
         addressRegion: "Maharashtra",
         addressCountry: "IN",
       },
-      areaServed: "Worldwide",
+      areaServed: { "@type": "Country", name: "United States" },
       additionalProperty: offerFacts,
       parentOrganization: { "@id": `${ORIGIN}/#organization` },
     },
@@ -379,7 +379,7 @@ function renderPage(page) {
     <link rel="canonical" href="${esc(pageUrl)}" />
     <meta property="og:type" content="${esc(ogType)}" />
     <meta property="og:site_name" content="${esc(BRAND)}" />
-    <meta property="og:locale" content="en_IN" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="${esc(pageUrl)}" />
     <meta property="og:title" content="${esc(page.title)}" />
     <meta property="og:description" content="${esc(page.description)}" />
