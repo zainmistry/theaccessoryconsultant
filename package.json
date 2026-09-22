@@ -2,6 +2,7 @@
   "name": "theaccessoryconsultant",
   "private": true,
   "scripts": {
-    "build": "echo 'Static site — no build step'"
+    "build": "node scripts/generate-seo-pages.mjs",
+    "generate:seo": "node scripts/generate-seo-pages.mjs"
   }
 }

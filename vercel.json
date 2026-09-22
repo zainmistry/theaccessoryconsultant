@@ -4,7 +4,28 @@
   "installCommand": null,
   "framework": null,
   "outputDirectory": ".",
-  "rewrites": [
-    { "source": "/((?!assets/).*)", "destination": "/index.html" }
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.theaccessoryconsultant.com" }],
+      "destination": "https://theaccessoryconsultant.com/:path*",
+      "statusCode": 301
+    },
+    { "source": "/about-us", "destination": "/about", "statusCode": 301 },
+    { "source": "/about-us/", "destination": "/about", "statusCode": 301 },
+    { "source": "/how-it-works", "destination": "/process", "statusCode": 301 },
+    { "source": "/how-it-works/", "destination": "/process", "statusCode": 301 }
+  ],
+  "headers": [
+    {
+      "source": "/robots.txt",
+      "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [{ "key": "Content-Type", "value": "application/xml; charset=utf-8" }]
+    }
   ]
 }
