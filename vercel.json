@@ -8,6 +8,12 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "www.theaccessoryconsultant.com" }],
+      "destination": "https://theaccessoryconsultant.com/",
+      "statusCode": 301
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.theaccessoryconsultant.com" }],
       "destination": "https://theaccessoryconsultant.com/:path*",
