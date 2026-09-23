@@ -25,11 +25,24 @@ if (vercel.rewrites?.length) {
 if (vercel.cleanUrls !== true) fail("cleanUrls must be true so /about serves about.html");
 if (vercel.trailingSlash !== false) fail("trailingSlash must be false");
 
-const www = (vercel.redirects || []).find(
-  (rule) => rule.has?.some((item) => item.type === "host" && item.value === "www.theaccessoryconsultant.com")
+const wwwRules = (vercel.redirects || []).filter((rule) =>
+  rule.has?.some((item) => item.type === "host" && item.value === "www.theaccessoryconsultant.com")
 );
-if (!www || www.statusCode !== 301 || !String(www.destination).startsWith("https://theaccessoryconsultant.com/")) {
-  fail("missing 301 from www.theaccessoryconsultant.com to the apex host");
+const wwwHome = wwwRules.find((rule) => rule.source === "/");
+if (
+  !wwwHome ||
+  wwwHome.statusCode !== 301 ||
+  wwwHome.destination !== "https://theaccessoryconsultant.com/"
+) {
+  fail("www homepage must 301 to https://theaccessoryconsultant.com/ because /:path* does not match /");
+}
+const wwwPaths = wwwRules.find((rule) => rule.source === "/:path*");
+if (
+  !wwwPaths ||
+  wwwPaths.statusCode !== 301 ||
+  wwwPaths.destination !== "https://theaccessoryconsultant.com/:path*"
+) {
+  fail("missing 301 from www.theaccessoryconsultant.com/:path* to the apex host");
 }
 for (const source of [
   "/about-us",
