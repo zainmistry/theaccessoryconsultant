@@ -22,12 +22,12 @@
 ## 1) `/services` page expansion copy
 
 ### Meta title (≤60)
-Private Label & OEM Jewelry Manufacturing for Brands
+Private Label & OEM Jewelry Manufacturing Services
 
 *(54 chars)*
 
 ### Meta description (≤155)
-Private label and OEM jewelry manufacturing for US brands, D2C & wholesalers. Low MOQ from 50. CAD to delivery ~18 days. Mumbai factory. NDA available.
+Private label, OEM, ODM and custom jewelry manufacturing for US brands. MOQ from 50 units, about 18 days CAD to delivery, NDAs offered. Get a quote.
 
 *(148 chars)*
 
@@ -185,12 +185,12 @@ Use the form above for structured RFQs, or reach out directly with files, quanti
 **Slug:** `blogs/custom-jewelry-manufacturer-for-us-brands`
 
 ### Meta title (≤60)
-Custom Jewelry Manufacturer for US Brands | India Factory
+Custom Jewelry Manufacturer for US Brands | MOQ 50
 
 *(55 chars)*
 
 ### Meta description (≤155)
-How US brands work with a custom jewelry manufacturer in India: private label & OEM, MOQ from 50, ~18-day CAD-to-delivery, NDA, CAD–sample–production.
+Custom jewelry manufacturer for US brands: your design in CAD, a sample to approve, then production from 50 units in about 18 days. NDAs offered.
 
 *(146 chars)*
 

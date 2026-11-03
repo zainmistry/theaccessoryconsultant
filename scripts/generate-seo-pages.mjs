@@ -13,7 +13,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { ARTICLE_CSS, PUBLISHED_ON, loadApprovedCopy, markdownToHtml, renderCrawlablePage } from "./approved-copy.mjs";
-import { homeInnerHtml } from "./atelier-home.mjs";
+import { HOME_FAQ, homeInnerHtml } from "./atelier-home.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
@@ -73,9 +73,9 @@ const adsSendTo = requiredMatch(shellHtml, /__GOOGLE_ADS_SEND_TO__ = "([^"]+)"/,
 const staticPages = [
   {
     path: "/",
-    title: "The Accessory Consultant | Custom Jewelry Manufacturing for US Brands",
+    title: "Private Label & Custom Jewelry Manufacturer for US Brands",
     description:
-      "Custom jewelry manufacturer for US brands, D2C labels, and wholesalers. Factory in Mumbai. MOQ from 50 units per design, about 18-day CAD-to-delivery. NDAs offered for private label and OEM.",
+      "Private label, custom and OEM jewelry manufacturer for US brands. MOQ from 50 units, about 18 days CAD to delivery, NDAs offered. Request a quote.",
     h1: "Custom Jewelry Made for Brands That Scale",
   },
   {
@@ -94,9 +94,9 @@ const staticPages = [
   },
   {
     path: "/blogs",
-    title: `Jewelry Manufacturing Insights | ${BRAND}`,
+    title: "Jewelry Manufacturing Guides & FAQ for US Brands",
     description:
-      "Stay updated with the latest trends, techniques, and insights in jewelry manufacturing and business development. Over 200 comprehensive articles to help you succeed.",
+      "Jewelry manufacturing FAQ and guides: private label, low MOQ, product development, CAD, vermeil and gold filled. Written for US brands and buyers.",
     h1: "Industry Insights & Resources",
   },
   {
@@ -242,6 +242,40 @@ const servicesPage = staticPages.find((page) => page.path === "/services");
 servicesPage.title = approved.services.metaTitle;
 servicesPage.description = approved.services.metaDescription;
 servicesPage.supplement = `<style>${ARTICLE_CSS}</style>\n${approved.services.html}`;
+const GUIDES = [
+  ["/blogs/jewelry-product-development", "Jewelry product development for US brands"],
+  ["/blogs/private-label-jewelry-manufacturer-for-us-brands", "Private label jewelry manufacturer for US brands"],
+  ["/blogs/custom-jewelry-manufacturer-for-us-brands", "Custom jewelry manufacturer for US brands"],
+  ["/blogs/oem-odm-jewelry-manufacturer-for-us-brands", "OEM and ODM jewelry manufacturing"],
+  ["/blogs/low-moq-jewelry-manufacturer-for-us-startups", "Low MOQ jewelry manufacturer for US startups"],
+  ["/blogs/jewelry-cad-manufacturing-for-brand-development", "Jewelry CAD manufacturing for brand development"],
+  ["/blogs/gold-vermeil-manufacturer-for-us-brands", "Gold vermeil manufacturer for US brands"],
+  ["/blogs/gold-filled-manufacturer-for-us-d2c-brands", "Gold filled manufacturer for US D2C brands"],
+  ["/blogs/jewelry-manufacturer-for-d2c-brands-us", "Jewelry manufacturer for D2C brands"],
+  ["/blogs/solid-gold-silver-custom-manufacturing-for-us-brands", "Solid gold and silver custom manufacturing"],
+  ["/blogs/how-to-get-a-jewelry-manufacturing-quote-rfq-guide-us", "How to get a jewelry manufacturing quote"],
+];
+function guideListHtml(heading, intro) {
+  const items = GUIDES.map(([href, label]) => `<li><a href="${href}">${label}</a></li>`).join("");
+  return `<section class="seo-approved" data-seo-guides="true"><h2>${heading}</h2><p>${intro}</p><ul>${items}</ul><p>See our <a href="/case-studies">case studies</a> or <a href="/get-quote">request a quote</a>.</p></section>`;
+}
+servicesPage.supplement += `\n${guideListHtml(
+  "Guides for US jewelry brands",
+  'New to manufacturing? Start with our <a href="/blogs/jewelry-product-development">jewelry product development guide</a>, which covers concept, sketch, CAD, sampling, materials, QC, and production scale-up.',
+)}`;
+const blogsPage = staticPages.find((page) => page.path === "/blogs");
+blogsPage.supplement = `<style>${ARTICLE_CSS}</style>\n${guideListHtml(
+  "Jewelry manufacturing guides and FAQ",
+  "In-depth guides for US brands, D2C labels, and wholesale buyers. MOQ from 50 units per design, about 18 days CAD to delivery, NDAs offered for private label and OEM.",
+)}`;
+const homePage = staticPages.find((page) => page.path === "/");
+homePage.extraGraph = [
+  {
+    "@type": "FAQPage",
+    "@id": `${ORIGIN}/#faq`,
+    mainEntity: HOME_FAQ.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+  },
+];
 const quotePage = staticPages.find((page) => page.path === "/get-quote");
 quotePage.title = approved.quote.metaTitle;
 quotePage.description = approved.quote.metaDescription;
@@ -265,6 +299,10 @@ function loadCaseStudies() {
       client: match[3],
       category: match[4],
       description: match[5],
+      materials: (bundle.slice(match.index, match.index + 1500).match(/materials:\[([^\]]*)\]/)?.[1] || "")
+        .split(",")
+        .map((item) => item.replace(/"/g, "").trim())
+        .filter(Boolean),
     });
   }
   const ids = new Set(studies.map((study) => study.id));
@@ -371,6 +409,7 @@ function organizationGraph(pageUrl, page) {
   if (page.blogPosting) {
     graph.push(page.blogPosting);
   }
+  if (page.extraGraph) graph.push(...page.extraGraph);
 
   return {
     "@context": "https://schema.org",
@@ -390,6 +429,7 @@ function renderPage(page) {
       : `<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h1 class="text-4xl lg:text-6xl font-bold text-foreground leading-tight mb-6">${esc(page.h1)}</h1>
         <p class="text-xl text-muted-foreground max-w-4xl">${esc(lead)}</p>
+        ${page.extraHtml || ""}
       </main>`;
 
   return `<!DOCTYPE html>
@@ -522,6 +562,11 @@ function buildPages() {
       description: study.description,
       h1: study.title,
       lead: study.description,
+      extraHtml: `<p class="text-lg text-muted-foreground max-w-4xl mt-4">Client: ${esc(study.client)}. Program type: ${esc(study.category)}.${
+        study.materials.length ? ` Materials: ${esc(study.materials.join(", "))}.` : ""
+      }</p>
+        <p class="text-lg text-muted-foreground max-w-4xl mt-4">Every program follows the same path: consultation, CAD, a physical sample for approval, then production checked against that sample. MOQ starts from 50 units per design, with about 18 days from CAD to delivery. NDAs are offered for private label and OEM.</p>
+        <p class="text-lg text-muted-foreground max-w-4xl mt-4">Related: <a href="/case-studies">all case studies</a> · <a href="/services">manufacturing services</a> · <a href="/blogs/jewelry-product-development">jewelry product development</a> · <a href="/blogs/private-label-jewelry-manufacturer-for-us-brands">private label manufacturing</a> · <a href="/get-quote">get a quote</a></p>`,
       indexable: true,
       ogType: "article",
     });
@@ -560,7 +605,7 @@ function buildPages() {
   return pages;
 }
 
-function crawlableShell(page, bodyMarkdown, { ogType, blogPosting }) {
+function crawlableShell(page, bodyMarkdown, { ogType, blogPosting, extraGraph }) {
   const canonical = canonicalFor(page.path);
   return renderCrawlablePage({
     origin: ORIGIN,
@@ -585,36 +630,108 @@ function crawlableShell(page, bodyMarkdown, { ogType, blogPosting }) {
       description: page.description,
       pageType: "WebPage",
       blogPosting,
+      extraGraph,
     }),
   });
 }
 
+const PRODUCT_DEV = (() => {
+  const markdown = fs.readFileSync(path.join(root, "content/seo/product-development-us.md"), "utf8").trim();
+  const faqStart = markdown.indexOf("## Jewelry product development FAQ");
+  const faq = [...markdown.slice(faqStart).matchAll(/^### (.+)\n([^\n]+)/gm)].map((m) => [m[1].trim(), m[2].trim()]);
+  return {
+    path: "/blogs/jewelry-product-development",
+    metaTitle: "Jewelry Product Development for US Brands: CAD to Sample",
+    metaDescription:
+      "Jewelry product development for US brands: concept, sketch, CAD, sampling, materials, QC and production. MOQ from 50 units, about 18 days CAD to delivery.",
+    h1: markdown.match(/^# (.+)$/m)[1].trim(),
+    markdown,
+    faq,
+  };
+})();
+if (PRODUCT_DEV.metaTitle.length > 60) throw new Error(`Product development title too long`);
+if (PRODUCT_DEV.metaDescription.length > 155) throw new Error(`Product development description too long`);
+if (PRODUCT_DEV.faq.length < 4) throw new Error("Product development FAQ not parsed");
+
+function relatedGuidesMarkdown(selfPath) {
+  const others = GUIDES.filter(([href]) => href !== selfPath);
+  const start = Math.max(0, GUIDES.findIndex(([href]) => href === selfPath));
+  const picks = [];
+  for (let i = 0; picks.length < 4 && i < others.length; i += 1) {
+    picks.push(others[(start + i) % others.length]);
+  }
+  if (selfPath !== PRODUCT_DEV.path && !picks.some(([href]) => href === PRODUCT_DEV.path)) {
+    picks[3] = GUIDES[0];
+  }
+  return `\n\n## Related guides\n\n${picks.map(([href, label]) => `- [${label}](${href})`).join("\n")}\n\nReady to talk about your line? See our [manufacturing services](/services), browse [case studies](/case-studies), or [get a quote](/get-quote).`;
+}
+
 function approvedPages() {
-  const pages = approved.pillars.map((pillar) => ({
-    path: pillar.path,
-    title: pillar.metaTitle,
-    description: pillar.metaDescription,
-    indexable: true,
-    lastmod: PUBLISHED_ON,
-    ogType: "article",
-    crawlableHtml: crawlableShell(
-      { path: pillar.path, title: pillar.metaTitle, description: pillar.metaDescription },
-      pillar.markdown,
+  const all = approved.pillars.concat([PRODUCT_DEV]);
+  const pages = all.map((pillar) => {
+    const url = canonicalFor(pillar.path);
+    const isDev = pillar === PRODUCT_DEV;
+    const extraGraph = [
       {
-        ogType: "article",
-        blogPosting: {
-          "@type": "BlogPosting",
-          headline: pillar.h1,
-          description: pillar.metaDescription,
-          datePublished: PUBLISHED_ON,
-          image: `${ORIGIN}${OG_IMAGE_PATH}`,
-          author: { "@id": `${ORIGIN}/#organization` },
-          publisher: { "@id": `${ORIGIN}/#organization` },
-          mainEntityOfPage: canonicalFor(pillar.path),
-        },
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${ORIGIN}/` },
+          { "@type": "ListItem", position: 2, name: "Blogs", item: `${ORIGIN}/blogs` },
+          { "@type": "ListItem", position: 3, name: pillar.h1, item: url },
+        ],
       },
-    ),
-  }));
+    ];
+    if (isDev) {
+      extraGraph.push(
+        {
+          "@type": "Service",
+          "@id": `${url}#service`,
+          name: "Jewelry product development",
+          serviceType: "Jewelry product development and manufacturing",
+          description: pillar.metaDescription,
+          provider: { "@id": `${ORIGIN}/#organization` },
+          areaServed: { "@type": "Country", name: "United States" },
+          url,
+        },
+        {
+          "@type": "FAQPage",
+          "@id": `${url}#faq`,
+          mainEntity: pillar.faq.map(([q, a]) => ({
+            "@type": "Question",
+            name: q,
+            acceptedAnswer: { "@type": "Answer", text: a },
+          })),
+        },
+      );
+    }
+    return {
+      path: pillar.path,
+      title: pillar.metaTitle,
+      description: pillar.metaDescription,
+      indexable: true,
+      lastmod: isDev ? "2026-11-03" : PUBLISHED_ON,
+      ogType: "article",
+      crawlableHtml: crawlableShell(
+        { path: pillar.path, title: pillar.metaTitle, description: pillar.metaDescription },
+        pillar.markdown + relatedGuidesMarkdown(pillar.path),
+        {
+          ogType: "article",
+          extraGraph,
+          blogPosting: {
+            "@type": isDev ? "Article" : "BlogPosting",
+            headline: pillar.h1,
+            description: pillar.metaDescription,
+            datePublished: isDev ? "2026-11-03" : PUBLISHED_ON,
+            image: `${ORIGIN}${OG_IMAGE_PATH}`,
+            author: { "@id": `${ORIGIN}/#organization` },
+            publisher: { "@id": `${ORIGIN}/#organization` },
+            mainEntityOfPage: url,
+          },
+        },
+      ),
+    };
+  });
 
   const hubs = [
     {

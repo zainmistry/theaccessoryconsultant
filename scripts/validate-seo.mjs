@@ -81,6 +81,7 @@ const pillarPaths = [
   "/blogs/jewelry-manufacturer-for-d2c-brands-us",
   "/blogs/solid-gold-silver-custom-manufacturing-for-us-brands",
   "/blogs/how-to-get-a-jewelry-manufacturing-quote-rfq-guide-us",
+  "/blogs/jewelry-product-development",
 ];
 for (const pillar of pillarPaths) {
   if (!locs.includes(`https://theaccessoryconsultant.com${pillar}`)) fail(`sitemap missing ${pillar}`);
@@ -158,10 +159,10 @@ if (!fs.existsSync(path.join(root, "blogs/205.html"))) fail("templated blog 205 
 
 const services = read("services.html");
 const quote = read("get-quote.html");
-if (!services.includes("Private Label &amp; OEM Jewelry Manufacturing for Brands")) {
+if (!services.includes("Private Label &amp; OEM Jewelry Manufacturing Services")) {
   fail("services title is not the approved meta title");
 }
-if (!services.includes("Low MOQ from 50. CAD to delivery ~18 days. Mumbai factory. NDA available.")) {
+if (!services.includes("MOQ from 50 units, about 18 days CAD to delivery, NDAs offered. Get a quote.")) {
   fail("services description is not the approved meta description");
 }
 if (!services.includes("Custom Jewelry Manufacturer for Brands, Private Label &amp; OEM")) {
@@ -228,6 +229,41 @@ for (const loc of locs) {
   titles.add(title);
   const canonical = html.match(/rel="canonical" href="([^"]+)"/)?.[1];
   if (canonical !== loc) fail(`canonical mismatch for ${loc}: ${canonical}`);
+}
+
+
+// Nov 2026: legacy .html 301s, homepage copy, product development page, related guides.
+for (const source of ["/index.html", "/privacy.html", "/case-studies/:id(\\d+).html", "/:path(.*)\\.html"]) {
+  const rule = (vercel.redirects || []).find((item) => item.source === source);
+  if (!rule || rule.statusCode !== 301) fail(`missing 301 for ${source}`);
+}
+const homeText = home.replace(/<script[\s\S]*?<\/script>/g, "").replace(/<style[\s\S]*?<\/style>/g, "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+if (homeText.length < 3000) fail(`homepage crawlable text too short: ${homeText.length}`);
+if (!home.includes('"@type":"FAQPage"')) fail("homepage missing FAQPage JSON-LD");
+if (!home.includes('href="/blogs/jewelry-product-development"')) fail("homepage missing product development link");
+if (!services.includes('href="/blogs/jewelry-product-development"')) fail("services missing product development link");
+const dev = read("blogs/jewelry-product-development.html");
+for (const needle of ['"@type":"FAQPage"', '"@type":"BreadcrumbList"', '"@type":"Article"', '"@type":"Service"', 'rel="canonical" href="https://theaccessoryconsultant.com/blogs/jewelry-product-development"']) {
+  if (!dev.includes(needle)) fail(`product development page missing ${needle}`);
+}
+for (const pillar of pillarPaths) {
+  const html = read(`${pillar.replace(/^\//, "")}.html`);
+  if (!html.includes("Related guides")) fail(`${pillar} missing related guides`);
+  for (const href of ["/services", "/get-quote", "/case-studies"]) {
+    if (!html.includes(`href="${href}"`)) fail(`${pillar} missing link to ${href}`);
+  }
+}
+for (const loc of locs) {
+  const url = new URL(loc);
+  const file = url.pathname === "/" ? "index.html" : `${url.pathname.replace(/^\//, "")}.html`;
+  const html = read(file);
+  const t = html.match(/<title>([^<]+)<\/title>/)?.[1] || "";
+  const d = html.match(/<meta name="description" content="([^"]+)"/)?.[1] || "";
+  const decode = (x) => x.replace(/&amp;/g, "&").replace(/&quot;/g, '"');
+  if (["/", "/services", "/blogs"].includes(url.pathname) || url.pathname.startsWith("/blogs/")) {
+    if (decode(t).length > 60) fail(`title over 60 chars on ${loc}`);
+    if (decode(d).length > 155) fail(`description over 155 chars on ${loc}`);
+  }
 }
 
 function contentType(filePath) {

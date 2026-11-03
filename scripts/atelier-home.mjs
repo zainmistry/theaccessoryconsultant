@@ -1,4 +1,31 @@
 /** Crawlable homepage. The SPA replaces #root; this is what no-JS and the first HTML response contain. */
+export const HOME_FAQ = [
+ [
+  "What is your minimum order quantity?",
+  "MOQ starts from 50 units per design."
+ ],
+ [
+  "How long does production take?",
+  "Typical CAD-to-delivery is about 18 days. International shipping time to the US is separate and depends on the destination and shipping method."
+ ],
+ [
+  "Do you sign NDAs?",
+  "Yes. NDAs are offered for private label and OEM programs. Ask for one at the quote stage, before you share design files."
+ ],
+ [
+  "Do I need CAD files to get started?",
+  "No. You can send sketches, reference photos, or a written brief. Our team builds the CAD model and you approve it before sampling."
+ ],
+ [
+  "Where is your factory?",
+  "Our factory is in Mumbai, India. We manufacture for US brands, D2C labels, and wholesale buyers."
+ ],
+ [
+  "How do I get a quote?",
+  "Use the quote form at theaccessoryconsultant.com/get-quote, email info@theaccessoryconsultant.com, or call +91 9152727387."
+ ]
+];
+
 export function homeInnerHtml() {
   return `<div class="at-page">
       <header class="at-wrap at-bar">
@@ -43,6 +70,45 @@ export function homeInnerHtml() {
           <img src="/assets/iStock-183380736_1759216721542-QZqdr2bG.jpg" alt="Jewelry artisans at work in Mumbai">
           <figcaption>Mumbai factory floor.</figcaption>
         </figure>
+      </section>
+      <section class="at-section at-wrap at-copy" aria-label="Jewelry manufacturing for US brands">
+        <h2>Jewelry manufacturing services for US brands</h2>
+        <p>The Accessory Consultant is a jewelry manufacturer for US brands, D2C labels, and wholesale buyers. We take a design from first brief to finished, packed product: CAD modeling, a physical sample for your approval, production, and quality checks before shipment. Our factory is in Mumbai, where our team has handled programs from first-time startup capsules to larger retail runs. You keep your brand and your customer. We make the product.</p>
+        <p>Most buyers come to us for one of three reasons: they need a <a href="/blogs/private-label-jewelry-manufacturer-for-us-brands">private label jewelry manufacturer</a> to produce their own designs, they want a <a href="/blogs/custom-jewelry-manufacturer-for-us-brands">custom jewelry manufacturer</a> to develop a new collection, or they need a factory that works at a lower minimum than most. See the full list on our <a href="/services">services page</a>.</p>
+        <h2>Private label, OEM, and ODM jewelry manufacturing</h2>
+        <p><strong>Private label:</strong> we manufacture your designs under your brand name. You approve the CAD and the sample, and the product ships ready for your label and packaging. This is also what many buyers call white label jewelry.</p>
+        <p><strong>OEM:</strong> you supply the design, spec, or CAD, and we build to it exactly. Good for brands with an in-house designer and a clear technical brief.</p>
+        <p><strong>ODM:</strong> you start from a direction rather than a finished design, and our team develops the product with you. Good for new lines and for brands that want to move faster. Read our <a href="/blogs/oem-odm-jewelry-manufacturer-for-us-brands">OEM and ODM guide</a> for how each model works.</p>
+        <p>NDAs are offered for private label and OEM programs, so your designs stay confidential before they launch.</p>
+        <h2>Low MOQ: start from 50 units per design</h2>
+        <p>Large minimums are one of the biggest barriers for new jewelry brands. Our MOQ starts from 50 units per design. That lets a D2C startup test a small capsule, lets a wholesale buyer trial a new style, and lets an established brand add a design without tying up cash in stock it may not sell. If a design works, you reorder against the same approved sample. Our <a href="/blogs/low-moq-jewelry-manufacturer-for-us-startups">low MOQ jewelry manufacturer guide</a> explains how to plan a first order.</p>
+        <h2>From CAD to delivery in about 18 days</h2>
+        <p>Every program follows the same path, so you always know what comes next:</p>
+        <ol>
+          <li><strong>Consultation:</strong> share your designs, references, quantities, and timeline.</li>
+          <li><strong>CAD:</strong> we build a 3D model and you review renders before any metal is used.</li>
+          <li><strong>Sample:</strong> a physical piece for you to approve. It becomes the reference for production.</li>
+          <li><strong>Production:</strong> pieces are made and checked against the approved sample.</li>
+          <li><strong>Delivery:</strong> finished goods are packed and shipped to your destination.</li>
+        </ol>
+        <p>Typical CAD-to-delivery is about 18 days. International shipping time to the US is separate and is confirmed once the destination and method are known. New to this? Our <a href="/blogs/jewelry-product-development">jewelry product development guide</a> covers each stage in detail, and the <a href="/process">process page</a> shows how we run it.</p>
+        <h2>Materials we manufacture in</h2>
+        <p>We work in <a href="/jewelry/silver">sterling silver</a>, <a href="/jewelry/gold-vermeil">gold vermeil</a>, <a href="/jewelry/gold-filled">gold filled</a>, <a href="/jewelry/solid-gold">solid gold</a>, <a href="/jewelry/gold-plated">gold plated</a>, and <a href="/jewelry/stainless-steel">stainless steel</a>, with natural diamonds, lab-grown diamonds, precious, semi-precious, and artificial stone options. Finish is approved on the physical sample. For a closer look at popular D2C materials, read our guides to <a href="/blogs/gold-vermeil-manufacturer-for-us-brands">gold vermeil manufacturing</a> and <a href="/blogs/gold-filled-manufacturer-for-us-d2c-brands">gold filled manufacturing</a>.</p>
+        <h2>Programs we have delivered</h2>
+        <p>Our case studies show the range of work: a <a href="/case-studies/1">luxury engagement ring collection</a> for a US bridal brand, a <a href="/case-studies/2">sterling silver line for an e-commerce startup</a>, <a href="/case-studies/3">a men's jewelry range</a> for a fashion brand, a <a href="/case-studies/4">boutique bridal collection</a> for an independent designer, and <a href="/case-studies/5">high-volume fashion jewelry</a> for a retail chain. Browse <a href="/case-studies">all case studies</a>.</p>
+        <h2>Jewelry manufacturing FAQ</h2>
+        <h3>What is your minimum order quantity?</h3>
+        <p>MOQ starts from 50 units per design.</p>
+        <h3>How long does production take?</h3>
+        <p>Typical CAD-to-delivery is about 18 days. International shipping time to the US is separate and depends on the destination and shipping method.</p>
+        <h3>Do you sign NDAs?</h3>
+        <p>Yes. NDAs are offered for private label and OEM programs. Ask for one at the quote stage, before you share design files.</p>
+        <h3>Do I need CAD files to get started?</h3>
+        <p>No. You can send sketches, reference photos, or a written brief. Our team builds the CAD model and you approve it before sampling.</p>
+        <h3>Where is your factory?</h3>
+        <p>Our factory is in Mumbai, India. We manufacture for US brands, D2C labels, and wholesale buyers.</p>
+        <h3>How do I get a quote?</h3>
+        <p>Use the <a href="/get-quote">quote form</a>, email <a href="mailto:info@theaccessoryconsultant.com">info@theaccessoryconsultant.com</a>, or call <a href="tel:+919152727387">+91 9152727387</a>. Our <a href="/blogs/how-to-get-a-jewelry-manufacturing-quote-rfq-guide-us">RFQ guide</a> lists what to include.</p>
       </section>
       <section class="at-section at-wrap" aria-label="Manufacturing process">
         <h2>From your sketch to a sealed sample box.</h2>

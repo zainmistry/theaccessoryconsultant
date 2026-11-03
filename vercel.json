@@ -8,40 +8,196 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/index.html",
+      "destination": "https://theaccessoryconsultant.com/",
+      "statusCode": 301
+    },
+    {
+      "source": "/home.html",
+      "destination": "https://theaccessoryconsultant.com/",
+      "statusCode": 301
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "https://theaccessoryconsultant.com/",
+      "statusCode": 301
+    },
+    {
+      "source": "/privacy",
+      "destination": "https://theaccessoryconsultant.com/",
+      "statusCode": 301
+    },
+    {
+      "source": "/case-studies/:id(\\d+).html",
+      "destination": "https://theaccessoryconsultant.com/case-studies/:id",
+      "statusCode": 301
+    },
+    {
+      "source": "/case-studies/:slug([a-zA-Z][^/]*).html",
+      "destination": "https://theaccessoryconsultant.com/case-studies",
+      "statusCode": 301
+    },
+    {
+      "source": "/case-studies/:slug([a-zA-Z][^/.]*)",
+      "destination": "https://theaccessoryconsultant.com/case-studies",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry/:slug(solid-gold|gold-filled|gold-vermeil|gold-plated|silver|stainless-steel).html",
+      "destination": "https://theaccessoryconsultant.com/jewelry/:slug",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry/:slug([^/]+).html",
+      "destination": "https://theaccessoryconsultant.com/jewelry",
+      "statusCode": 301
+    },
+    {
+      "source": "/stones/:slug(natural-diamonds|lab-grown-diamonds|precious-stones|semi-precious-stones|artificial-stones).html",
+      "destination": "https://theaccessoryconsultant.com/stones/:slug",
+      "statusCode": 301
+    },
+    {
+      "source": "/stones/:slug([^/]+).html",
+      "destination": "https://theaccessoryconsultant.com/stones",
+      "statusCode": 301
+    },
+    {
+      "source": "/process/:slug(consultation|design|sample|production).html",
+      "destination": "https://theaccessoryconsultant.com/process/:slug",
+      "statusCode": 301
+    },
+    {
+      "source": "/process/:slug([^/]+).html",
+      "destination": "https://theaccessoryconsultant.com/process",
+      "statusCode": 301
+    },
+    {
+      "source": "/blogs/:slug([^/]+).html",
+      "destination": "https://theaccessoryconsultant.com/blogs/:slug",
+      "statusCode": 301
+    },
+    {
+      "source": "/:page(about|services|blogs|case-studies|contact|get-quote|process|jewelry|stones).html",
+      "destination": "https://theaccessoryconsultant.com/:page",
+      "statusCode": 301
+    },
+    {
+      "source": "/:path(.*)\\.html",
+      "destination": "https://theaccessoryconsultant.com/",
+      "statusCode": 301
+    },
+    {
       "source": "/",
-      "has": [{ "type": "host", "value": "www.theaccessoryconsultant.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.theaccessoryconsultant.com"
+        }
+      ],
       "destination": "https://theaccessoryconsultant.com/",
       "statusCode": 301
     },
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.theaccessoryconsultant.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.theaccessoryconsultant.com"
+        }
+      ],
       "destination": "https://theaccessoryconsultant.com/:path*",
       "statusCode": 301
     },
-    { "source": "/about-us", "destination": "/about", "statusCode": 301 },
-    { "source": "/about-us/", "destination": "/about", "statusCode": 301 },
-    { "source": "/how-it-works", "destination": "/process", "statusCode": 301 },
-    { "source": "/how-it-works/", "destination": "/process", "statusCode": 301 },
-    { "source": "/jewelry/earrings", "destination": "/jewelry", "statusCode": 301 },
-    { "source": "/jewelry/earrings/", "destination": "/jewelry", "statusCode": 301 },
-    { "source": "/jewelry/rings", "destination": "/jewelry", "statusCode": 301 },
-    { "source": "/jewelry/rings/", "destination": "/jewelry", "statusCode": 301 },
-    { "source": "/jewelry/necklaces", "destination": "/jewelry", "statusCode": 301 },
-    { "source": "/jewelry/necklaces/", "destination": "/jewelry", "statusCode": 301 },
-    { "source": "/jewelry/bracelets", "destination": "/jewelry", "statusCode": 301 },
-    { "source": "/jewelry/bracelets/", "destination": "/jewelry", "statusCode": 301 },
-    { "source": "/jewelry/sets", "destination": "/jewelry", "statusCode": 301 },
-    { "source": "/jewelry/sets/", "destination": "/jewelry", "statusCode": 301 }
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "statusCode": 301
+    },
+    {
+      "source": "/about-us/",
+      "destination": "/about",
+      "statusCode": 301
+    },
+    {
+      "source": "/how-it-works",
+      "destination": "/process",
+      "statusCode": 301
+    },
+    {
+      "source": "/how-it-works/",
+      "destination": "/process",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry/earrings",
+      "destination": "/jewelry",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry/earrings/",
+      "destination": "/jewelry",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry/rings",
+      "destination": "/jewelry",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry/rings/",
+      "destination": "/jewelry",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry/necklaces",
+      "destination": "/jewelry",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry/necklaces/",
+      "destination": "/jewelry",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry/bracelets",
+      "destination": "/jewelry",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry/bracelets/",
+      "destination": "/jewelry",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry/sets",
+      "destination": "/jewelry",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry/sets/",
+      "destination": "/jewelry",
+      "statusCode": 301
+    }
   ],
   "headers": [
     {
       "source": "/robots.txt",
-      "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }]
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
     },
     {
       "source": "/sitemap.xml",
-      "headers": [{ "key": "Content-Type", "value": "application/xml; charset=utf-8" }]
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        }
+      ]
     }
   ]
 }
