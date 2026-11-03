@@ -29,27 +29,70 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" crossorigin href="/assets/index-DH-_m6RL.css">
     <link rel="stylesheet" href="/assets/atelier.css">
-    <style>.seo-approved{max-width:46rem;margin:0 auto;padding:4rem 1.25rem 5rem;font-family:"Manrope",sans-serif;color:#0F0F10;line-height:1.6;font-size:16px;background:#F7F5F0}
-.seo-approved h1,.seo-approved h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.01em;color:#0F0F10}
-.seo-approved h1{font-size:clamp(36px,5vw,56px);line-height:1.05;margin:0 0 1rem}
-.seo-approved h2{font-size:clamp(28px,3vw,40px);line-height:1.1;margin:2.4rem 0 .75rem}
-.seo-approved h3{font-family:"Manrope",sans-serif;font-weight:600;font-size:22px;line-height:1.3;margin:1.6rem 0 .5rem;color:#0F0F10}
-.seo-approved p{margin:0 0 1rem}
-.seo-approved ul,.seo-approved ol{margin:0 0 1rem;padding-left:1.25rem}
-.seo-approved li{margin:.35rem 0}
-.seo-approved a{color:#7E5C22}
-.seo-approved table{width:100%;border-collapse:collapse;margin:0 0 1.25rem;font-size:15px}
-.seo-approved th,.seo-approved td{border-bottom:1px solid #E2DFD8;padding:.75rem;text-align:left;vertical-align:top}
-.seo-approved th{font-weight:600;color:#5E5F63}
-.seo-shell-header,.seo-shell-footer{font-family:"Manrope",sans-serif;background:#F7F5F0;color:#0F0F10}
-.seo-shell-header{border-bottom:1px solid #E2DFD8}
-.seo-shell-footer{border-top:1px solid #E2DFD8}
-.seo-shell-header a,.seo-shell-footer a{color:#0F0F10;text-decoration:none}
-.seo-shell-header a:hover,.seo-shell-footer a:hover{color:#7E5C22}
-.seo-shell-inner{max-width:1240px;margin:0 auto;padding:1rem 1.25rem;display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:center;justify-content:space-between}
-.seo-shell-brand{font-family:"Instrument Serif",Georgia,serif;font-size:1.35rem;letter-spacing:-.01em}
-.seo-shell-nav{display:flex;flex-wrap:wrap;gap:.65rem 1rem;font-size:.95rem}
-.seo-shell-footer .seo-shell-inner{font-size:13px;line-height:1.5;color:#5E5F63}</style>
+    <style>.seo-page{background:var(--color-bg,#F7F5F0);color:var(--color-ink,#0F0F10);font-family:var(--font-sans,"Manrope",sans-serif);min-height:100vh;display:flex;flex-direction:column}
+.seo-shell-header{position:sticky;top:0;z-index:50;background:rgba(247,245,240,.94);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--color-rule,#E2DFD8)}
+.seo-shell-inner{width:min(1240px,calc(100% - 32px));margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.seo-shell-brand{font-family:var(--font-serif,"Instrument Serif",Georgia,serif);font-size:22px;line-height:1;color:var(--color-ink,#0F0F10);text-decoration:none;white-space:nowrap}
+.seo-shell-nav{display:flex;align-items:center;gap:22px;font-size:14px;font-weight:500}
+.seo-shell-nav a{color:var(--color-ink,#0F0F10);text-decoration:none;transition:color .2s}
+.seo-shell-nav a:hover{color:var(--color-gold-ink,#7E5C22)}
+.seo-shell-nav a[aria-current="page"]{color:var(--color-gold-ink,#7E5C22)}
+.seo-shell-nav a.seo-cta{background:var(--color-ink,#0F0F10);color:var(--color-bg,#F7F5F0);padding:9px 16px;border-radius:999px;font-weight:600}
+.seo-shell-nav a.seo-cta:hover{background:var(--color-gold-ink,#7E5C22);color:#fff}
+.seo-menu-toggle{position:absolute;opacity:0;pointer-events:none}
+.seo-menu-btn{display:none;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;border-radius:6px;margin-right:-10px}
+.seo-menu-btn span,.seo-menu-btn span:before,.seo-menu-btn span:after{display:block;width:20px;height:2px;background:var(--color-ink,#0F0F10);border-radius:2px;position:relative;transition:transform .2s,background .2s}
+.seo-menu-btn span:before,.seo-menu-btn span:after{content:"";position:absolute;left:0}
+.seo-menu-btn span:before{top:-6px}.seo-menu-btn span:after{top:6px}
+.seo-menu-toggle:focus-visible+.seo-menu-btn{outline:2px solid var(--color-gold,#B8893B)}
+@media (max-width:900px){
+.seo-shell-header{position:relative}
+.seo-menu-btn{display:inline-flex}
+.seo-shell-inner{flex-wrap:wrap}
+.seo-shell-nav{display:none;flex-basis:100%;flex-direction:column;align-items:stretch;gap:0;padding:4px 0 16px}
+.seo-shell-nav a{padding:12px 0;border-bottom:1px solid var(--color-rule,#E2DFD8);font-size:15px}
+.seo-shell-nav a.seo-cta{margin-top:14px;text-align:center;border-bottom:0;padding:13px 16px}
+.seo-menu-toggle:checked~.seo-shell-nav{display:flex}
+.seo-menu-toggle:checked+.seo-menu-btn span{background:transparent}
+.seo-menu-toggle:checked+.seo-menu-btn span:before{transform:translateY(6px) rotate(45deg)}
+.seo-menu-toggle:checked+.seo-menu-btn span:after{transform:translateY(-6px) rotate(-45deg)}
+}
+.seo-main{flex:1;width:min(1240px,calc(100% - 32px));margin:0 auto}
+.seo-approved{max-width:720px;margin:0 auto;padding:72px 0 64px;font-size:17px;line-height:1.75;color:#2a2a2c}
+.seo-approved>*:first-child{margin-top:0}
+.seo-approved h1,.seo-approved h2{font-family:var(--font-serif,"Instrument Serif",Georgia,serif);font-weight:400;letter-spacing:-.01em;color:var(--color-ink,#0F0F10)}
+.seo-approved h1{font-size:clamp(40px,6vw,68px);line-height:1.02;margin:0 0 28px}
+.seo-approved h1+p{font-size:19px;line-height:1.65;color:var(--color-ink,#0F0F10)}
+.seo-approved h2{font-size:clamp(30px,3.6vw,42px);line-height:1.1;margin:64px 0 16px;padding-top:28px;border-top:1px solid var(--color-rule,#E2DFD8)}
+.seo-approved h3{font-family:var(--font-sans,"Manrope",sans-serif);font-weight:600;font-size:19px;line-height:1.35;margin:32px 0 8px;color:var(--color-ink,#0F0F10)}
+.seo-approved p{margin:0 0 18px}
+.seo-approved strong{color:var(--color-ink,#0F0F10);font-weight:600}
+.seo-approved a{color:var(--color-gold-ink,#7E5C22);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.seo-approved a:hover{color:var(--color-ink,#0F0F10)}
+.seo-approved ul,.seo-approved ol{margin:0 0 22px;padding:0}
+.seo-approved ul{list-style:none}
+.seo-approved ul>li{position:relative;padding-left:22px;margin:8px 0}
+.seo-approved ul>li:before{content:"";position:absolute;left:2px;top:.72em;width:7px;height:7px;border-radius:50%;background:var(--color-gold,#B8893B)}
+.seo-approved ol{list-style:none;counter-reset:step}
+.seo-approved ol>li{counter-increment:step;position:relative;padding:14px 0 14px 56px;margin:0;border-bottom:1px solid var(--color-rule,#E2DFD8)}
+.seo-approved ol>li:before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:12px;font-family:var(--font-serif,"Instrument Serif",Georgia,serif);font-size:28px;line-height:1;color:var(--color-gold-ink,#7E5C22)}
+.seo-approved table{width:100%;border-collapse:collapse;margin:8px 0 28px;font-size:15px;line-height:1.5;background:#fff;border:1px solid var(--color-rule,#E2DFD8);border-radius:6px;overflow:hidden;display:block;overflow-x:auto}
+.seo-approved thead,.seo-approved tbody{display:table;width:100%;border-collapse:collapse}
+.seo-approved th,.seo-approved td{border-bottom:1px solid var(--color-rule,#E2DFD8);padding:12px 16px;text-align:left;vertical-align:top}
+.seo-approved th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--color-muted,#5E5F63);background:#FBFAF7}
+.seo-approved tr:last-child td{border-bottom:0}
+.seo-approved blockquote{margin:24px 0;padding:4px 0 4px 20px;border-left:2px solid var(--color-gold,#B8893B);font-family:var(--font-serif,Georgia,serif);font-size:22px}
+.seo-cta-band{border-top:1px solid var(--color-rule,#E2DFD8);background:var(--color-ink,#0F0F10);color:var(--color-bg,#F7F5F0)}
+.seo-cta-band .seo-shell-inner{padding:48px 0;flex-wrap:wrap;gap:20px}
+.seo-cta-band h2{font-family:var(--font-serif,"Instrument Serif",Georgia,serif);font-weight:400;font-size:clamp(28px,4vw,40px);line-height:1.1;margin:0 0 6px}
+.seo-cta-band p{margin:0;color:#c9c7c1;font-size:15px}
+.seo-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;background:var(--color-bg,#F7F5F0);color:var(--color-ink,#0F0F10);font-weight:600;font-size:15px;text-decoration:none;transition:background .2s}
+.seo-btn:hover{background:var(--color-gold,#B8893B);color:#fff}
+.seo-shell-footer{border-top:1px solid var(--color-rule,#E2DFD8);font-size:13px;line-height:1.6;color:var(--color-muted,#5E5F63)}
+.seo-shell-footer .seo-shell-inner{flex-wrap:wrap;padding:28px 0;gap:10px 24px;min-height:0}
+.seo-shell-footer a{color:var(--color-ink,#0F0F10);text-decoration:none}
+.seo-shell-footer a:hover{color:var(--color-gold-ink,#7E5C22)}
+@media (max-width:720px){.seo-approved{padding:44px 0 48px;font-size:16px}.seo-approved h1+p{font-size:17px}.seo-approved h2{margin-top:48px}.seo-approved ol>li{padding-left:46px}.seo-approved ol>li:before{font-size:24px}.seo-shell-footer .seo-shell-inner{flex-direction:column;align-items:flex-start}}</style>
     <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://theaccessoryconsultant.com/#organization","name":"The Accessory Consultant","url":"https://theaccessoryconsultant.com/","description":"The Accessory Consultant is an export jewelry manufacturer for US brands, D2C labels, and wholesalers. The factory is in Mumbai. MOQ from 50 units per design. About 18-day CAD-to-delivery. NDAs offered for private label and OEM.","logo":"https://theaccessoryconsultant.com/assets/favicon-192.png","email":"info@theaccessoryconsultant.com","telephone":"+919152727387","address":{"@type":"PostalAddress","addressLocality":"Mumbai","addressRegion":"Maharashtra","addressCountry":"IN"},"additionalProperty":[{"@type":"PropertyValue","name":"Minimum order quantity","value":"50 units per design"},{"@type":"PropertyValue","name":"CAD-to-delivery","value":"About 18 days"},{"@type":"PropertyValue","name":"NDA","value":"Offered for private label and OEM"}]},{"@type":"LocalBusiness","@id":"https://theaccessoryconsultant.com/#localbusiness","name":"The Accessory Consultant","url":"https://theaccessoryconsultant.com/","description":"The Accessory Consultant is an export jewelry manufacturer for US brands, D2C labels, and wholesalers. The factory is in Mumbai. MOQ from 50 units per design. About 18-day CAD-to-delivery. NDAs offered for private label and OEM.","image":"https://theaccessoryconsultant.com/assets/iStock-183380736_1759216721542-QZqdr2bG.jpg","email":"info@theaccessoryconsultant.com","telephone":"+919152727387","address":{"@type":"PostalAddress","addressLocality":"Mumbai","addressRegion":"Maharashtra","addressCountry":"IN"},"areaServed":{"@type":"Country","name":"United States"},"additionalProperty":[{"@type":"PropertyValue","name":"Minimum order quantity","value":"50 units per design"},{"@type":"PropertyValue","name":"CAD-to-delivery","value":"About 18 days"},{"@type":"PropertyValue","name":"NDA","value":"Offered for private label and OEM"}],"parentOrganization":{"@id":"https://theaccessoryconsultant.com/#organization"}},{"@type":"WebSite","@id":"https://theaccessoryconsultant.com/#website","url":"https://theaccessoryconsultant.com/","name":"The Accessory Consultant","publisher":{"@id":"https://theaccessoryconsultant.com/#organization"},"inLanguage":"en"},{"@type":"WebPage","@id":"https://theaccessoryconsultant.com/blogs/private-label-jewelry-manufacturer-for-us-brands#webpage","url":"https://theaccessoryconsultant.com/blogs/private-label-jewelry-manufacturer-for-us-brands","name":"Private Label Jewelry Manufacturer for US Brands | MOQ 50","description":"Private label and white label jewelry made under your brand. MOQ from 50 units, about 18 days CAD to delivery, NDA before you share designs.","isPartOf":{"@id":"https://theaccessoryconsultant.com/#website"},"about":{"@id":"https://theaccessoryconsultant.com/#organization"},"inLanguage":"en"},{"@type":"BlogPosting","headline":"Private Label Jewelry Manufacturer for US Brands","description":"Private label and white label jewelry made under your brand. MOQ from 50 units, about 18 days CAD to delivery, NDA before you share designs.","datePublished":"2026-09-22","image":"https://theaccessoryconsultant.com/assets/iStock-183380736_1759216721542-QZqdr2bG.jpg","author":{"@id":"https://theaccessoryconsultant.com/#organization"},"publisher":{"@id":"https://theaccessoryconsultant.com/#organization"},"mainEntityOfPage":"https://theaccessoryconsultant.com/blogs/private-label-jewelry-manufacturer-for-us-brands"},{"@type":"BreadcrumbList","@id":"https://theaccessoryconsultant.com/blogs/private-label-jewelry-manufacturer-for-us-brands#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://theaccessoryconsultant.com/"},{"@type":"ListItem","position":2,"name":"Blogs","item":"https://theaccessoryconsultant.com/blogs"},{"@type":"ListItem","position":3,"name":"Private Label Jewelry Manufacturer for US Brands","item":"https://theaccessoryconsultant.com/blogs/private-label-jewelry-manufacturer-for-us-brands"}]}]}</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18369791593"></script>
     <script>
@@ -66,9 +109,12 @@
       with the SPA not-found view, so this page intentionally omits it.
       In-app client navigations from existing screens do not render this HTML.
     -->
+    <div class="seo-page">
     <header class="seo-shell-header">
       <div class="seo-shell-inner">
         <a class="seo-shell-brand" href="/">The Accessory Consultant</a>
+        <input type="checkbox" id="seo-menu" class="seo-menu-toggle" aria-label="Open menu">
+        <label for="seo-menu" class="seo-menu-btn" aria-hidden="true"><span></span></label>
         <nav class="seo-shell-nav" aria-label="Primary">
           <a href="/">Home</a>
           <a href="/about">About</a>
@@ -77,10 +123,11 @@
           <a href="/case-studies">Case Studies</a>
           <a href="/custom-jewelry-manufacturer-usa">US brands</a>
           <a href="/contact">Contact</a>
-          <a href="/get-quote">Get a quote</a>
+          <a class="seo-cta" href="/get-quote">Get a quote</a>
         </nav>
       </div>
     </header>
+    <main class="seo-main">
     <article class="seo-approved">
 <h1>Private Label Jewelry Manufacturer for US Brands</h1>
 <p>Private label jewelry manufacturing is how many US brands put a collection on the market without owning a factory. You keep the brand, the merchandising logic, and the customer relationship. The factory turns approved designs into repeatable product—at a workable MOQ, on a timeline you can plan around, with confidentiality when the line cannot be shared.</p>
@@ -145,6 +192,16 @@
 <ul><li><a href="/blogs/custom-jewelry-manufacturer-for-us-brands">Custom jewelry manufacturer for US brands</a></li><li><a href="/blogs/oem-odm-jewelry-manufacturer-for-us-brands">OEM and ODM jewelry manufacturing</a></li><li><a href="/blogs/low-moq-jewelry-manufacturer-for-us-startups">Low MOQ jewelry manufacturer for US startups</a></li><li><a href="/blogs/jewelry-product-development">Jewelry product development for US brands</a></li></ul>
 <p>Ready to talk about your line? See our <a href="/services">manufacturing services</a>, browse <a href="/case-studies">case studies</a>, or <a href="/get-quote">get a quote</a>.</p>
     </article>
+    </main>
+    <section class="seo-cta-band" aria-label="Request a quote">
+      <div class="seo-shell-inner">
+        <div>
+          <h2>Ready to start your line?</h2>
+          <p>MOQ from 50 units per design. About 18 days CAD to delivery. NDAs offered.</p>
+        </div>
+        <a class="seo-btn" href="/get-quote">Get a quote</a>
+      </div>
+    </section>
     <footer class="seo-shell-footer">
       <div class="seo-shell-inner">
         <span>Factory in Mumbai, Maharashtra, India</span>
@@ -153,5 +210,6 @@
         <span><a href="/custom-jewelry-manufacturer-usa">Custom jewelry manufacturer USA</a></span>
       </div>
     </footer>
+    </div>
   </body>
 </html>
