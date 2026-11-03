@@ -794,6 +794,102 @@ See [Jewelry](/jewelry) for materials and [Get a quote](/get-quote) to include s
   return pages;
 }
 
+/**
+ * US location landing pages: one national hub plus city pages.
+ * Copy lives in content/seo/locations/*.md (title/description header, then markdown).
+ * Every page serves clients remotely from the Mumbai factory; no US office is claimed.
+ */
+const LOCATION_HUB_PATH = "/custom-jewelry-manufacturer-usa";
+const LOCATION_CITIES = [
+  ["new-york", "New York", "NY"],
+  ["los-angeles", "Los Angeles", "CA"],
+  ["miami", "Miami", "FL"],
+  ["chicago", "Chicago", "IL"],
+  ["dallas", "Dallas", "TX"],
+  ["houston", "Houston", "TX"],
+  ["san-francisco", "San Francisco", "CA"],
+  ["atlanta", "Atlanta", "GA"],
+  ["seattle", "Seattle", "WA"],
+  ["las-vegas", "Las Vegas", "NV"],
+];
+const LOCATIONS_LASTMOD = "2026-11-04";
+
+function loadLocation(file) {
+  const raw = fs.readFileSync(path.join(root, "content/seo/locations", file), "utf8").replace(/\r\n/g, "\n");
+  const [header, ...rest] = raw.split("\n---\n");
+  const meta = Object.fromEntries(header.split("\n").map((line) => line.match(/^(\w+):\s*(.+)$/)).filter(Boolean).map((m) => [m[1], m[2].trim()]));
+  const markdown = rest.join("\n---\n").trim();
+  const faqStart = markdown.search(/^## .*FAQ.*$/m);
+  if (faqStart < 0) throw new Error(`No FAQ section in ${file}`);
+  const faqBlock = markdown.slice(faqStart).split(/\n## /)[0];
+  const faq = [...faqBlock.matchAll(/^### (.+)\n([^\n]+)/gm)].map((m) => [m[1].trim(), m[2].trim().replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")]);
+  if (faq.length < 4) throw new Error(`FAQ not parsed in ${file}`);
+  if (meta.title.length > 60) throw new Error(`Location title too long: ${meta.title}`);
+  if (meta.description.length > 155) throw new Error(`Location description too long: ${meta.description}`);
+  if (!markdown.includes("](/get-quote)")) throw new Error(`Missing quote CTA in ${file}`);
+  return { title: meta.title, description: meta.description, h1: markdown.match(/^# (.+)$/m)[1].trim(), markdown, faq };
+}
+
+function locationPages() {
+  const hubUrl = canonicalFor(LOCATION_HUB_PATH);
+  const defs = [{ path: LOCATION_HUB_PATH, file: "usa.md", city: null }].concat(
+    LOCATION_CITIES.map(([slug, name, region]) => ({ path: `/custom-jewelry-manufacturer/${slug}`, file: `${slug}.md`, city: { name, region } })),
+  );
+  return defs.map((def) => {
+    const copy = loadLocation(def.file);
+    const url = canonicalFor(def.path);
+    if (def.city && !copy.markdown.includes(`](${LOCATION_HUB_PATH})`)) throw new Error(`${def.file} missing hub link`);
+    if (def.city && !copy.markdown.includes("](/services)")) throw new Error(`${def.file} missing services link`);
+    if (!def.city) {
+      for (const [slug] of LOCATION_CITIES) {
+        if (!copy.markdown.includes(`](/custom-jewelry-manufacturer/${slug})`)) throw new Error(`hub missing link to ${slug}`);
+      }
+    }
+    const crumbs = [{ "@type": "ListItem", position: 1, name: "Home", item: `${ORIGIN}/` }];
+    if (def.city) {
+      crumbs.push({ "@type": "ListItem", position: 2, name: "Custom jewelry manufacturer USA", item: hubUrl });
+      crumbs.push({ "@type": "ListItem", position: 3, name: def.city.name, item: url });
+    } else {
+      crumbs.push({ "@type": "ListItem", position: 2, name: "Custom jewelry manufacturer USA", item: url });
+    }
+    const areaServed = def.city
+      ? { "@type": "City", name: def.city.name, containedInPlace: { "@type": "State", name: def.city.region, containedInPlace: { "@type": "Country", name: "United States" } } }
+      : { "@type": "Country", name: "United States" };
+    const extraGraph = [
+      { "@type": "BreadcrumbList", "@id": `${url}#breadcrumb`, itemListElement: crumbs },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: def.city ? `Custom jewelry manufacturing for ${def.city.name} brands` : "Custom jewelry manufacturing for US brands",
+        serviceType: "Custom jewelry manufacturing",
+        description: copy.description,
+        provider: { "@id": `${ORIGIN}/#organization` },
+        areaServed,
+        url,
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: copy.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+      },
+    ];
+    const html = crawlableShell({ path: def.path, title: copy.title, description: copy.description }, copy.markdown, {
+      ogType: "website",
+      extraGraph,
+    }).replace('<article class="seo-approved">', `<section id="seo-content" aria-label="${esc(copy.h1)}"><article class="seo-approved">`).replace("    </article>\n", "    </article></section>\n");
+    if (!html.includes('id="seo-content"') || !html.includes("</article></section>")) throw new Error(`seo-content wrap failed for ${def.path}`);
+    return {
+      path: def.path,
+      title: copy.title,
+      description: copy.description,
+      indexable: true,
+      lastmod: LOCATIONS_LASTMOD,
+      ogType: "website",
+      crawlableHtml: html,
+    };
+  });
+}
+
 function writeFile(relativePath, contents) {
   const destination = path.join(root, relativePath);
   fs.mkdirSync(path.dirname(destination), { recursive: true });
@@ -807,7 +903,7 @@ function loadPreviousManifest() {
   return JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 }
 
-const pages = buildPages().concat(approvedPages());
+const pages = buildPages().concat(approvedPages(), locationPages());
 const pagePaths = pages.map((page) => page.path);
 if (new Set(pagePaths).size !== pagePaths.length) {
   throw new Error("Duplicate page paths in SEO page set");
