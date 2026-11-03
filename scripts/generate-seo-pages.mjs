@@ -13,6 +13,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { ARTICLE_CSS, PUBLISHED_ON, loadApprovedCopy, markdownToHtml, renderCrawlablePage } from "./approved-copy.mjs";
+import { homeInnerHtml } from "./atelier-home.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
@@ -383,6 +384,13 @@ function renderPage(page) {
   const ogType = page.ogType || "website";
   const lead = page.lead || page.description;
   const structured = jsonLdScript(organizationGraph(pageUrl, page));
+  const crawlable =
+    page.path === "/"
+      ? homeInnerHtml()
+      : `<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h1 class="text-4xl lg:text-6xl font-bold text-foreground leading-tight mb-6">${esc(page.h1)}</h1>
+        <p class="text-xl text-muted-foreground max-w-4xl">${esc(lead)}</p>
+      </main>`;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -412,7 +420,7 @@ function renderPage(page) {
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="application/ld+json">${structured}</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=${adsId}"></script>
@@ -425,20 +433,19 @@ function renderPage(page) {
     <script src="/assets/data/blog-api.js"></script>
     <script type="module" crossorigin src="${assetJs}"></script>
     <link rel="stylesheet" crossorigin href="${assetCss}">
+    <link rel="stylesheet" href="/assets/atelier.css">
   </head>
-  <body>
+  <body class="site">
     <script>
       window.__FORMSPREE_FORM_ID__ = "${formspreeId}";
       window.__GOOGLE_ADS_SEND_TO__ = "${adsSendTo}";
     </script>
     <div id="root">
-      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h1 class="text-4xl lg:text-6xl font-bold text-foreground leading-tight mb-6">${esc(page.h1)}</h1>
-        <p class="text-xl text-muted-foreground max-w-4xl">${esc(lead)}</p>
-      </main>
+      ${crawlable}
     </div>
-    ${page.supplement ? `${page.supplement}\n    ` : ""}<script src="/assets/seo-routes.js"></script>
+    ${page.supplement ? `${page.supplement}\n    ` : ""}    <script src="/assets/seo-routes.js"></script>
     <script src="/assets/seo-runtime.js"></script>
+    <script src="/assets/atelier.js" defer></script>
     <script>
       document.addEventListener('click', function (e) {
         var target = e.target.closest('a[data-testid*="cta"][href="#"]');
@@ -463,8 +470,9 @@ function renderNotFound() {
     <meta name="robots" content="noindex" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
     <link rel="stylesheet" crossorigin href="${assetCss}">
+    <link rel="stylesheet" href="/assets/atelier.css">
   </head>
-  <body>
+  <body class="site">
     <main class="max-w-3xl mx-auto px-4 py-24">
       <h1 class="text-4xl font-bold text-foreground mb-4">Page not found</h1>
       <p class="text-xl text-muted-foreground mb-8">That URL is not a page on ${esc(BRAND)}.</p>
