@@ -68,6 +68,7 @@ export const ARTICLE_CSS = `
 .seo-approved th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--color-muted,#5E5F63);background:#FBFAF7}
 .seo-approved tr:last-child td{border-bottom:0}
 .seo-approved blockquote{margin:24px 0;padding:4px 0 4px 20px;border-left:2px solid var(--color-gold,#B8893B);font-family:var(--font-serif,Georgia,serif);font-size:22px}
+.seo-figure{margin:28px 0 36px}.seo-figure img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:6px;background:var(--color-rule,#E2DFD8)}.seo-hero{margin:8px 0 32px}
 .seo-cta-band{border-top:1px solid var(--color-rule,#E2DFD8);background:var(--color-ink,#0F0F10);color:var(--color-bg,#F7F5F0)}
 .seo-cta-band .seo-shell-inner{padding:48px 0;flex-wrap:wrap;gap:20px}
 .seo-cta-band h2{font-family:var(--font-serif,"Instrument Serif",Georgia,serif);font-weight:400;font-size:clamp(28px,4vw,40px);line-height:1.1;margin:0 0 6px}

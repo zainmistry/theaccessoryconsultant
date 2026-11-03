@@ -9,6 +9,7 @@
  * Regenerate after the JS/CSS bundle or blog-posts.json changes:
  *   npm run generate:seo
  */
+import { imagesFor, injectImages, imageObjects } from "./seo-images.mjs";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -610,6 +611,10 @@ function buildPages() {
 
 function crawlableShell(page, bodyMarkdown, { ogType, blogPosting, extraGraph }) {
   const canonical = canonicalFor(page.path);
+  const imgs = imagesFor(page.path);
+  const imgGraph = imgs ? imageObjects(ORIGIN, canonical, imgs) : [];
+  const jsonLd = organizationGraph(canonical, { title: page.title, description: page.description, pageType: "WebPage", blogPosting, extraGraph: (extraGraph || []).concat(imgGraph) });
+  if (imgs) { const wp = jsonLd["@graph"].find((g) => g["@id"] === `${canonical}#webpage`); wp.primaryImageOfPage = { "@id": `${canonical}#image-1` }; wp.image = imgGraph.map((g) => ({ "@id": g["@id"] })); }
   return renderCrawlablePage({
     origin: ORIGIN,
     brand: BRAND,
@@ -625,16 +630,10 @@ function crawlableShell(page, bodyMarkdown, { ogType, blogPosting, extraGraph })
     title: page.title,
     description: page.description,
     canonical,
-    bodyHtml: markdownToHtml(bodyMarkdown),
+    bodyHtml: injectImages(markdownToHtml(bodyMarkdown), imgs),
     robots: "index, follow",
     ogType,
-    jsonLd: organizationGraph(canonical, {
-      title: page.title,
-      description: page.description,
-      pageType: "WebPage",
-      blogPosting,
-      extraGraph,
-    }),
+    jsonLd,
   });
 }
 
