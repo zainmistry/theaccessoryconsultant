@@ -14,12 +14,12 @@
 **Slug:** `/blogs/private-label-jewelry-manufacturer-for-us-brands`
 
 ### Meta title (≤60)
-Private Label Jewelry Manufacturer for US Brands
+Private Label Jewelry Manufacturer for US Brands | MOQ 50
 
 *(48 chars)*
 
 ### Meta description (≤155)
-Private label jewelry manufacturer for US brands & D2C. Mumbai factory, MOQ from 50, ~18-day CAD-to-delivery, NDA, CAD→sample→production.
+Private label and white label jewelry made under your brand. MOQ from 50 units, about 18 days CAD to delivery, NDA before you share designs.
 
 *(137 chars)*
 
@@ -369,12 +369,12 @@ Clear model, clear specs, clear sample approval—then production in Mumbai with
 **Slug:** `/blogs/low-moq-jewelry-manufacturer-for-us-startups`
 
 ### Meta title (≤60)
-Low MOQ Jewelry Manufacturer for US Startups & D2C
+Low MOQ Jewelry Manufacturer: Start From 50 Units
 
 *(50 chars)*
 
 ### Meta description (≤155)
-Low MOQ jewelry manufacturer for US startups & D2C. MOQ from 50, Mumbai factory, ~18-day CAD-to-delivery, NDA, CAD→sample→production.
+Launch your jewelry line with a low MOQ from 50 units per design. CAD, sample and production in about 18 days for US startups and D2C brands.
 
 *(133 chars)*
 
