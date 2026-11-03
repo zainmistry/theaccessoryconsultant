@@ -1,5 +1,5 @@
 title: Custom Jewelry Manufacturer for Los Angeles Brands | TAC
-description: Jewelry manufacturer for Los Angeles D2C, influencer and celebrity-led brands. MOQ from 50 units per design, about 18 days CAD to delivery, NDAs offered.
+description: Jewelry manufacturer for Los Angeles D2C, influencer and celebrity-led brands. MOQ from 50 units, about 18 days CAD to delivery.
 ---
 # Custom jewelry manufacturer for Los Angeles brands
 

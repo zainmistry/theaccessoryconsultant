@@ -1,4 +1,4 @@
-/* Count confirmed numerals once. Does not touch forms. */
+/* Paint confirmed numerals (final value only; no count-up, so no intermediate figures like 47 or 17 are ever shown). Does not touch forms. */
 (function () {
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -13,18 +13,7 @@
     if (!el.hasAttribute("data-count")) return;
     el.dataset.counted = "1";
     var end = Number(el.getAttribute("data-count"));
-    if (reduce || !isFinite(end)) {
-      paint(el, end);
-      return;
-    }
-    var start = performance.now();
-    function step(now) {
-      var p = Math.min(1, (now - start) / 500);
-      var eased = 1 - Math.pow(1 - p, 3);
-      paint(el, Math.round(end * eased));
-      if (p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
+    if (isFinite(end)) paint(el, end);
   }
 
   function scan(root) {

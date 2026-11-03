@@ -323,7 +323,7 @@ const aboutRes = await get("/about");
 if (aboutRes.status !== 200 || !aboutRes.body.includes("<h1")) fail("GET /about did not return the about shell");
 const unknown = await get("/this-route-should-not-exist");
 if (unknown.status !== 404) fail(`unknown path status ${unknown.status}, expected 404`);
-if (unknown.body.includes("Custom Jewelry Made for Brands That Scale")) {
+if (unknown.body.includes("Custom Jewelry Manufacturer for Brands That Scale")) {
   fail("unknown path returned the homepage");
 }
 const asset = await get("/assets/seo-runtime.js");

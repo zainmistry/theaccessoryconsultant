@@ -1,5 +1,5 @@
 title: Custom Jewelry Manufacturer for Seattle Brands | TAC
-description: Jewelry manufacturer for Seattle and Pacific Northwest makers, outdoor and minimalist brands. MOQ from 50 units per design, about 18 days CAD to delivery.
+description: Jewelry manufacturer for Seattle and Pacific Northwest makers, outdoor and minimalist brands. MOQ from 50 units, about 18 days CAD to delivery.
 ---
 # Custom jewelry manufacturer for Seattle brands
 

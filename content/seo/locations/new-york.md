@@ -1,5 +1,5 @@
 title: Custom Jewelry Manufacturer for New York Brands | TAC
-description: Custom jewelry manufacturer for New York fashion labels, D2C brands and wholesalers. MOQ from 50 units, about 18 days CAD to delivery, NDAs offered.
+description: Custom jewelry manufacturer for New York fashion labels, D2C brands and wholesalers. MOQ from 50 units, about 18 days CAD to delivery.
 ---
 # Custom jewelry manufacturer for New York brands
 

@@ -1,5 +1,5 @@
 title: Custom Jewelry Manufacturer for Chicago Brands | TAC
-description: Jewelry manufacturer for Chicago retailers, wholesalers and Midwest D2C brands. MOQ from 50 units per design, about 18 days CAD to delivery, NDAs offered.
+description: Jewelry manufacturer for Chicago retailers, wholesalers and Midwest D2C brands. MOQ from 50 units, about 18 days CAD to delivery.
 ---
 # Custom jewelry manufacturer for Chicago brands
 

@@ -321,6 +321,7 @@ export function renderCrawlablePage(ctx) {
           <a href="/services">Services</a>
           <a href="/blogs">Blogs</a>
           <a href="/case-studies">Case Studies</a>
+          <a href="/custom-jewelry-manufacturer-usa">US brands</a>
           <a href="/contact">Contact</a>
           <a href="/get-quote">Get a quote</a>
         </nav>
@@ -334,6 +335,7 @@ ${ctx.bodyHtml}
         <span>Factory in Mumbai, Maharashtra, India</span>
         <span><a href="tel:${ctx.phoneE164}">${esc(ctx.phoneDisplay)}</a></span>
         <span><a href="mailto:${ctx.email}">${esc(ctx.email)}</a></span>
+        <span><a href="/custom-jewelry-manufacturer-usa">Custom jewelry manufacturer USA</a></span>
       </div>
     </footer>
   </body>

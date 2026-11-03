@@ -73,10 +73,10 @@ const adsSendTo = requiredMatch(shellHtml, /__GOOGLE_ADS_SEND_TO__ = "([^"]+)"/,
 const staticPages = [
   {
     path: "/",
-    title: "Private Label & Custom Jewelry Manufacturer for US Brands",
+    title: "Jewelry Manufacturer for US Brands | Custom & Private Label",
     description:
       "Private label, custom and OEM jewelry manufacturer for US brands. MOQ from 50 units, about 18 days CAD to delivery, NDAs offered. Request a quote.",
-    h1: "Custom Jewelry Made for Brands That Scale",
+    h1: "Custom Jewelry Manufacturer for Brands That Scale",
   },
   {
     path: "/about",
@@ -811,11 +811,42 @@ const LOCATION_CITIES = [
   ["atlanta", "Atlanta", "GA"],
   ["seattle", "Seattle", "WA"],
   ["las-vegas", "Las Vegas", "NV"],
+  ["boston", "Boston", "MA"],
+  ["philadelphia", "Philadelphia", "PA"],
+  ["washington-dc", "Washington", "DC"],
+  ["phoenix", "Phoenix", "AZ"],
+  ["san-diego", "San Diego", "CA"],
+  ["denver", "Denver", "CO"],
+  ["austin", "Austin", "TX"],
+  ["nashville", "Nashville", "TN"],
+  ["charlotte", "Charlotte", "NC"],
+  ["orlando", "Orlando", "FL"],
+  ["minneapolis", "Minneapolis", "MN"],
+  ["detroit", "Detroit", "MI"],
+  ["portland", "Portland", "OR"],
+  ["san-antonio", "San Antonio", "TX"],
+  ["salt-lake-city", "Salt Lake City", "UT"],
+  ["honolulu", "Honolulu", "HI"],
+  ["new-jersey", "Newark", "NJ"],
+  ["providence", "Providence", "RI"],
+  ["fort-worth", "Fort Worth", "TX"],
+  ["el-paso", "El Paso", "TX"],
+  ["mcallen", "McAllen", "TX"],
+  ["texas", "Texas", "TX"],
+];
+const TEXAS_CITY_SLUGS = LOCATION_CITIES.filter(([slug, , region]) => region === "TX" && slug !== "texas").map(([slug]) => slug);
+const PRODUCT_PILLARS = [
+  "custom-ring-manufacturer",
+  "chain-necklace-manufacturer",
+  "bridal-jewelry-manufacturer",
+  "lab-grown-diamond-jewelry-manufacturer",
+  "brass-fashion-jewelry-manufacturer",
+  "sterling-silver-jewelry-manufacturer",
 ];
 const LOCATIONS_LASTMOD = "2026-11-04";
 
-function loadLocation(file) {
-  const raw = fs.readFileSync(path.join(root, "content/seo/locations", file), "utf8").replace(/\r\n/g, "\n");
+function loadLocation(file, dir = "content/seo/locations") {
+  const raw = fs.readFileSync(path.join(root, dir, file), "utf8").replace(/\r\n/g, "\n");
   const [header, ...rest] = raw.split("\n---\n");
   const meta = Object.fromEntries(header.split("\n").map((line) => line.match(/^(\w+):\s*(.+)$/)).filter(Boolean).map((m) => [m[1], m[2].trim()]));
   const markdown = rest.join("\n---\n").trim();
@@ -840,7 +871,15 @@ function locationPages() {
     const url = canonicalFor(def.path);
     if (def.city && !copy.markdown.includes(`](${LOCATION_HUB_PATH})`)) throw new Error(`${def.file} missing hub link`);
     if (def.city && !copy.markdown.includes("](/services)")) throw new Error(`${def.file} missing services link`);
+    if (def.path.endsWith("/texas")) {
+      for (const slug of TEXAS_CITY_SLUGS) {
+        if (!copy.markdown.includes(`](/custom-jewelry-manufacturer/${slug})`)) throw new Error(`texas page missing link to ${slug}`);
+      }
+    }
     if (!def.city) {
+      for (const slug of PRODUCT_PILLARS) {
+        if (!copy.markdown.includes(`](/${slug})`)) throw new Error(`hub missing link to ${slug}`);
+      }
       for (const [slug] of LOCATION_CITIES) {
         if (!copy.markdown.includes(`](/custom-jewelry-manufacturer/${slug})`)) throw new Error(`hub missing link to ${slug}`);
       }
@@ -852,7 +891,9 @@ function locationPages() {
     } else {
       crumbs.push({ "@type": "ListItem", position: 2, name: "Custom jewelry manufacturer USA", item: url });
     }
-    const areaServed = def.city
+    const areaServed = def.path.endsWith("/texas")
+      ? { "@type": "State", name: "Texas", containedInPlace: { "@type": "Country", name: "United States" } }
+      : def.city
       ? { "@type": "City", name: def.city.name, containedInPlace: { "@type": "State", name: def.city.region, containedInPlace: { "@type": "Country", name: "United States" } } }
       : { "@type": "Country", name: "United States" };
     const extraGraph = [
@@ -890,6 +931,55 @@ function locationPages() {
   });
 }
 
+function wordCount(markdown) {
+  return markdown.replace(/\]\([^)]*\)/g, "]").replace(/[#*|\[\]`>-]/g, " ").split(/\s+/).filter((w) => /[A-Za-z0-9]/.test(w)).length;
+}
+
+/** Product-type pillars at /<slug>; copy in content/seo/products/*.md. */
+function productPages() {
+  const hubUrl = canonicalFor(LOCATION_HUB_PATH);
+  return PRODUCT_PILLARS.map((slug) => {
+    const copy = loadLocation(`${slug}.md`, "content/seo/products");
+    const words = wordCount(copy.markdown);
+    if (words < 800) throw new Error(`${slug} has only ${words} words`);
+    if (!copy.markdown.includes(`](${LOCATION_HUB_PATH})`)) throw new Error(`${slug} missing hub link`);
+    if ((copy.markdown.match(/\]\(\/custom-jewelry-manufacturer\/[a-z-]+\)/g) || []).length < 3) throw new Error(`${slug} needs city links`);
+    const pagePath = `/${slug}`;
+    const url = canonicalFor(pagePath);
+    const extraGraph = [
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${ORIGIN}/` },
+          { "@type": "ListItem", position: 2, name: "Custom jewelry manufacturer USA", item: hubUrl },
+          { "@type": "ListItem", position: 3, name: copy.h1, item: url },
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: copy.h1,
+        serviceType: "Jewelry manufacturing",
+        description: copy.description,
+        provider: { "@id": `${ORIGIN}/#organization` },
+        areaServed: { "@type": "Country", name: "United States" },
+        url,
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: copy.faq.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+      },
+    ];
+    const html = crawlableShell({ path: pagePath, title: copy.title, description: copy.description }, copy.markdown, { ogType: "website", extraGraph })
+      .replace('<article class="seo-approved">', `<section id="seo-content" aria-label="${esc(copy.h1)}"><article class="seo-approved">`)
+      .replace("    </article>\n", "    </article></section>\n");
+    if (!html.includes("</article></section>")) throw new Error(`seo-content wrap failed for ${pagePath}`);
+    return { path: pagePath, title: copy.title, description: copy.description, indexable: true, lastmod: LOCATIONS_LASTMOD, ogType: "website", crawlableHtml: html };
+  });
+}
+
 function writeFile(relativePath, contents) {
   const destination = path.join(root, relativePath);
   fs.mkdirSync(path.dirname(destination), { recursive: true });
@@ -903,7 +993,7 @@ function loadPreviousManifest() {
   return JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 }
 
-const pages = buildPages().concat(approvedPages(), locationPages());
+const pages = buildPages().concat(approvedPages(), locationPages(), productPages());
 const pagePaths = pages.map((page) => page.path);
 if (new Set(pagePaths).size !== pagePaths.length) {
   throw new Error("Duplicate page paths in SEO page set");

@@ -1,5 +1,5 @@
 title: Custom Jewelry Manufacturer for Dallas Brands | TAC
-description: Jewelry manufacturer for Dallas wholesalers, boutiques and Texas brands. MOQ from 50 units per design, about 18 days CAD to delivery, NDAs offered.
+description: Jewelry manufacturer for Dallas wholesalers, boutiques and Texas brands. MOQ from 50 units, about 18 days CAD to delivery.
 ---
 # Custom jewelry manufacturer for Dallas brands
 
@@ -57,4 +57,4 @@ NDAs are offered for private label and OEM programs.
 ### Can you ship to my Fort Worth warehouse?
 Yes, tell us the address in your brief and we will quote shipping to it.
 
-More: our [US hub page](/custom-jewelry-manufacturer-usa), [services](/services), and [custom jewelry manufacturer guide](/blogs/custom-jewelry-manufacturer-for-us-brands). **Prepping for market?** [Get a quote](/get-quote), email [info@theaccessoryconsultant.com](mailto:info@theaccessoryconsultant.com) or call [+91 9152727387](tel:+919152727387).
+More: our [US hub page](/custom-jewelry-manufacturer-usa) (and our [Texas guide](/custom-jewelry-manufacturer/texas)), [services](/services), and [custom jewelry manufacturer guide](/blogs/custom-jewelry-manufacturer-for-us-brands). **Prepping for market?** [Get a quote](/get-quote), email [info@theaccessoryconsultant.com](mailto:info@theaccessoryconsultant.com) or call [+91 9152727387](tel:+919152727387).

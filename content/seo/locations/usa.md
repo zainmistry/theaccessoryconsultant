@@ -1,5 +1,5 @@
-title: Custom Jewelry Manufacturer for US Brands | Mumbai Factory
-description: Custom jewelry manufacturer for US brands, D2C labels and wholesalers. MOQ from 50 units per design, about 18 days CAD to delivery, NDAs offered.
+title: Custom Jewelry Manufacturer USA for Brands | Mumbai Factory
+description: Custom jewelry manufacturer for US brands, D2C labels and wholesalers. MOQ from 50 units, about 18 days CAD to delivery.
 ---
 # Custom jewelry manufacturer for US brands
 
@@ -30,16 +30,66 @@ Our [jewelry product development guide](/blogs/jewelry-product-development) expl
 
 We serve clients across the country remotely. These city guides describe how brands in each market typically work with us:
 
+### Northeast
+
 - [Custom jewelry manufacturer for New York brands](/custom-jewelry-manufacturer/new-york)
-- [Custom jewelry manufacturer for Los Angeles brands](/custom-jewelry-manufacturer/los-angeles)
+- [Custom jewelry manufacturer for New Jersey brands](/custom-jewelry-manufacturer/new-jersey)
+- [Custom jewelry manufacturer for Boston brands](/custom-jewelry-manufacturer/boston)
+- [Custom jewelry manufacturer for Philadelphia brands](/custom-jewelry-manufacturer/philadelphia)
+- [Custom jewelry manufacturer for Providence brands](/custom-jewelry-manufacturer/providence)
+- [Custom jewelry manufacturer for Washington DC brands](/custom-jewelry-manufacturer/washington-dc)
+
+### Southeast
+
 - [Custom jewelry manufacturer for Miami brands](/custom-jewelry-manufacturer/miami)
-- [Custom jewelry manufacturer for Chicago brands](/custom-jewelry-manufacturer/chicago)
-- [Custom jewelry manufacturer for Dallas brands](/custom-jewelry-manufacturer/dallas)
-- [Custom jewelry manufacturer for Houston brands](/custom-jewelry-manufacturer/houston)
-- [Custom jewelry manufacturer for San Francisco brands](/custom-jewelry-manufacturer/san-francisco)
+- [Custom jewelry manufacturer for Orlando brands](/custom-jewelry-manufacturer/orlando)
 - [Custom jewelry manufacturer for Atlanta brands](/custom-jewelry-manufacturer/atlanta)
-- [Custom jewelry manufacturer for Seattle brands](/custom-jewelry-manufacturer/seattle)
+- [Custom jewelry manufacturer for Charlotte brands](/custom-jewelry-manufacturer/charlotte)
+- [Custom jewelry manufacturer for Nashville brands](/custom-jewelry-manufacturer/nashville)
+
+### Texas
+
+- [Custom jewelry manufacturer for Texas brands (state guide)](/custom-jewelry-manufacturer/texas)
+- [Custom jewelry manufacturer for Dallas brands](/custom-jewelry-manufacturer/dallas)
+- [Custom jewelry manufacturer for Fort Worth brands](/custom-jewelry-manufacturer/fort-worth)
+- [Custom jewelry manufacturer for Houston brands](/custom-jewelry-manufacturer/houston)
+- [Custom jewelry manufacturer for Austin brands](/custom-jewelry-manufacturer/austin)
+- [Custom jewelry manufacturer for San Antonio brands](/custom-jewelry-manufacturer/san-antonio)
+- [Custom jewelry manufacturer for El Paso brands](/custom-jewelry-manufacturer/el-paso)
+- [Custom jewelry manufacturer for McAllen and the Rio Grande Valley brands](/custom-jewelry-manufacturer/mcallen)
+
+### Midwest
+
+- [Custom jewelry manufacturer for Chicago brands](/custom-jewelry-manufacturer/chicago)
+- [Custom jewelry manufacturer for Minneapolis brands](/custom-jewelry-manufacturer/minneapolis)
+- [Custom jewelry manufacturer for Detroit brands](/custom-jewelry-manufacturer/detroit)
+
+### Mountain and Southwest
+
+- [Custom jewelry manufacturer for Denver brands](/custom-jewelry-manufacturer/denver)
+- [Custom jewelry manufacturer for Salt Lake City brands](/custom-jewelry-manufacturer/salt-lake-city)
+- [Custom jewelry manufacturer for Phoenix brands](/custom-jewelry-manufacturer/phoenix)
 - [Custom jewelry manufacturer for Las Vegas brands](/custom-jewelry-manufacturer/las-vegas)
+
+### West Coast and Pacific
+
+- [Custom jewelry manufacturer for Los Angeles brands](/custom-jewelry-manufacturer/los-angeles)
+- [Custom jewelry manufacturer for San Diego brands](/custom-jewelry-manufacturer/san-diego)
+- [Custom jewelry manufacturer for San Francisco brands](/custom-jewelry-manufacturer/san-francisco)
+- [Custom jewelry manufacturer for Portland brands](/custom-jewelry-manufacturer/portland)
+- [Custom jewelry manufacturer for Seattle brands](/custom-jewelry-manufacturer/seattle)
+- [Custom jewelry manufacturer for Honolulu brands](/custom-jewelry-manufacturer/honolulu)
+
+## Jewelry manufacturer by product type
+
+As a jewelry manufacturer for US brands, we also publish product guides:
+
+- [Custom ring manufacturer](/custom-ring-manufacturer)
+- [Chain and necklace manufacturer](/chain-necklace-manufacturer)
+- [Bridal jewelry manufacturer](/bridal-jewelry-manufacturer)
+- [Lab-grown diamond jewelry manufacturer](/lab-grown-diamond-jewelry-manufacturer)
+- [Brass and fashion jewelry manufacturer](/brass-fashion-jewelry-manufacturer)
+- [Sterling silver jewelry manufacturer](/sterling-silver-jewelry-manufacturer)
 
 ## Materials and stones
 

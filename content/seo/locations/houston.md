@@ -54,4 +54,4 @@ About 18 days for a typical program. Shipping to Houston is separate.
 ### Can I keep my designs confidential?
 NDAs are offered for private label and OEM programs.
 
-Explore our [US hub](/custom-jewelry-manufacturer-usa), [manufacturing services](/services) and [custom jewelry manufacturer guide](/blogs/custom-jewelry-manufacturer-for-us-brands). **Ready to plan your next season?** [Request a quote](/get-quote).
+Explore our [US hub](/custom-jewelry-manufacturer-usa) (and our [Texas guide](/custom-jewelry-manufacturer/texas)), [manufacturing services](/services) and [custom jewelry manufacturer guide](/blogs/custom-jewelry-manufacturer-for-us-brands). **Ready to plan your next season?** [Request a quote](/get-quote).
