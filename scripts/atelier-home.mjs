@@ -1,3 +1,4 @@
+import { figure } from "./seo-images.mjs";
 /** Crawlable homepage. The SPA replaces #root; this is what no-JS and the first HTML response contain. */
 export const HOME_FAQ = [
  [
@@ -293,7 +294,7 @@ export function homeInnerHtml() {
 }
 
 export function homeSeoContentHtml() {
-  return `<style>#seo-content{font-family:Manrope,system-ui,sans-serif;color:#2b2622;background:#f7f3ee;padding:56px 20px;border-top:1px solid rgba(0,0,0,.08)}#seo-content .seo-wrap{max-width:760px;margin:0 auto;line-height:1.7;font-size:16px}#seo-content h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(26px,4vw,34px);line-height:1.2;margin:40px 0 12px;color:#1c1916}#seo-content h2:first-child{margin-top:0}#seo-content h3{font-size:17px;font-weight:600;margin:22px 0 6px}#seo-content p,#seo-content li{margin:0 0 12px;overflow-wrap:anywhere}#seo-content ol{padding-left:22px}#seo-content a{color:#8a5a2b;text-decoration:underline}</style>
+  return `<style>#seo-content{font-family:Manrope,system-ui,sans-serif;color:#2b2622;background:#f7f3ee;padding:56px 20px;border-top:1px solid rgba(0,0,0,.08)}#seo-content .seo-wrap{max-width:760px;margin:0 auto;line-height:1.7;font-size:16px}#seo-content h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(26px,4vw,34px);line-height:1.2;margin:40px 0 12px;color:#1c1916}#seo-content h2:first-child{margin-top:0}#seo-content h3{font-size:17px;font-weight:600;margin:22px 0 6px}#seo-content p,#seo-content li{margin:0 0 12px;overflow-wrap:anywhere}#seo-content ol{padding-left:22px}#seo-content a{color:#8a5a2b;text-decoration:underline}#seo-content .seo-figure{margin:28px 0 32px}#seo-content .seo-figure img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:6px}</style>
 <section id="seo-content" aria-label="Jewelry manufacturing for US brands"><div class="seo-wrap">
         <h2>Custom jewelry manufacturer and private label jewelry manufacturing for US brands</h2>
         <p>The Accessory Consultant is a jewelry manufacturer for US brands, D2C labels, and wholesale buyers. We take a design from first brief to finished, packed product: CAD modeling, a physical sample for your approval, production, and quality checks before shipment. Our factory is in Mumbai, where our team has handled programs from first-time startup capsules to larger retail runs. You keep your brand and your customer. We make the product.</p>
@@ -305,6 +306,7 @@ export function homeSeoContentHtml() {
         <p>NDAs are offered for private label and OEM programs, so your designs stay confidential before they launch.</p>
         <h2>Low MOQ: start from 50 units per design</h2>
         <p>Large minimums are one of the biggest barriers for new jewelry brands. Our MOQ starts from 50 units per design. That lets a D2C startup test a small capsule, lets a wholesale buyer trial a new style, and lets an established brand add a design without tying up cash in stock it may not sell. If a design works, you reorder against the same approved sample. Our <a href="/blogs/low-moq-jewelry-manufacturer-for-us-startups">low MOQ jewelry manufacturer guide</a> explains how to plan a first order.</p>
+        ${figure("jeweler-cad-tablet", false)}
         <h2>From CAD to delivery in about 18 days</h2>
         <p>Every program follows the same path, so you always know what comes next:</p>
         <ol>
@@ -315,6 +317,7 @@ export function homeSeoContentHtml() {
           <li><strong>Delivery:</strong> finished goods are packed and shipped to your destination.</li>
         </ol>
         <p>Typical CAD-to-delivery is about 18 days. International shipping time to the US is separate and is confirmed once the destination and method are known. New to this? Our <a href="/blogs/jewelry-product-development">jewelry product development guide</a> covers each stage in detail, and the <a href="/process">process page</a> shows how we run it.</p>
+        ${figure("cast-jewelry-tree", false)}
         <h2>Materials we manufacture in</h2>
         <p>We work in <a href="/jewelry/silver">sterling silver</a>, <a href="/jewelry/gold-vermeil">gold vermeil</a>, <a href="/jewelry/gold-filled">gold filled</a>, <a href="/jewelry/solid-gold">solid gold</a>, <a href="/jewelry/gold-plated">gold plated</a>, and <a href="/jewelry/stainless-steel">stainless steel</a>, with natural diamonds, lab-grown diamonds, precious, semi-precious, and artificial stone options. Finish is approved on the physical sample. For a closer look at popular D2C materials, read our guides to <a href="/blogs/gold-vermeil-manufacturer-for-us-brands">gold vermeil manufacturing</a> and <a href="/blogs/gold-filled-manufacturer-for-us-d2c-brands">gold filled manufacturing</a>.</p>
         <h2>Custom jewelry manufacturer for brands across the USA</h2>
