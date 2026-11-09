@@ -82,6 +82,112 @@ export function injectImages(html, names) {
   });
   return out;
 }
+const PEXELS = {
+  "diamond-engagement-ring": "https://www.pexels.com/photo/close-up-photo-of-ring-2849742/",
+  "gold-chain-necklace": "https://www.pexels.com/photo/close-up-shot-of-a-chain-necklace-12194263/",
+  "gold-tone-earrings": "https://www.pexels.com/photo/a-pair-of-gold-earrings-on-a-white-fabric-12194360/",
+  "gold-wedding-rings": "https://www.pexels.com/photo/gold-wedding-rings-in-close-up-photography-13524237/",
+  "jewelry-gift-box": "https://www.pexels.com/photo/diamond-silver-necklace-and-earrings-in-black-box-7093174/",
+  "loose-diamond-tweezers": "https://www.pexels.com/photo/exquisite-lab-grown-diamond-in-tweezers-close-up-32492519/",
+  "silver-jewelry-flatlay": "https://www.pexels.com/photo/close-up-shot-of-silver-jewelries-9430468/",
+};
+
+const ISTOCK_LICENSE = "https://www.istockphoto.com/legal/license-agreement";
+const ISTOCK_ACQUIRE = "https://www.istockphoto.com/";
+const PEXELS_LICENSE = "https://www.pexels.com/license/";
+const BRAND_CONTACT = "https://theaccessoryconsultant.com/contact";
+const BRAND_NAME = "The Accessory Consultant";
+
+/** Build licensing fields from content/seo/image-credits.md (no invented photographer names). */
+export function licensingForSeoName(name) {
+  if (ISTOCK[name]) {
+    return {
+      creator: { "@type": "Organization", name: "iStock" },
+      creditText: "iStock",
+      copyrightNotice: "© iStock",
+      license: ISTOCK_LICENSE,
+      acquireLicensePage: ISTOCK_ACQUIRE,
+    };
+  }
+  if (PEXELS[name]) {
+    // Photographer names are not listed in image-credits.md; do not invent them.
+    return {
+      creator: { "@type": "Organization", name: "Pexels" },
+      creditText: "Photo on Pexels",
+      copyrightNotice: "© Pexels",
+      license: PEXELS_LICENSE,
+      acquireLicensePage: PEXELS[name],
+    };
+  }
+  // Unknown stock key: treat as brand-owned only if it is not listed as stock.
+  return {
+    creator: { "@type": "Organization", name: BRAND_NAME },
+    creditText: BRAND_NAME,
+    copyrightNotice: `© ${BRAND_NAME}`,
+    license: BRAND_CONTACT,
+    acquireLicensePage: BRAND_CONTACT,
+  };
+}
+
+export function brandImageObject(origin, contentUrl, { id = `${origin}/#logo`, caption } = {}) {
+  return {
+    "@type": "ImageObject",
+    "@id": id,
+    contentUrl,
+    url: contentUrl,
+    ...(caption ? { caption } : {}),
+    creator: { "@type": "Organization", name: BRAND_NAME },
+    creditText: BRAND_NAME,
+    copyrightNotice: `© ${BRAND_NAME}`,
+    license: BRAND_CONTACT,
+    acquireLicensePage: BRAND_CONTACT,
+  };
+}
+
+/** Map a deployed /assets/iStock-{id}_….jpg path (or URL) to ImageObject licensing. */
+export function imageObjectForAssetUrl(origin, assetUrl, { id, caption, width, height } = {}) {
+  const url = assetUrl.startsWith("http") ? assetUrl : `${origin}${assetUrl.startsWith("/") ? assetUrl : `/${assetUrl}`}`;
+  const m = url.match(/iStock-(\d+)/i);
+  const base = {
+    "@type": "ImageObject",
+    ...(id ? { "@id": id } : {}),
+    contentUrl: url,
+    url,
+    ...(width ? { width } : {}),
+    ...(height ? { height } : {}),
+    ...(caption ? { caption } : {}),
+  };
+  if (m) {
+    return {
+      ...base,
+      creator: { "@type": "Organization", name: "iStock" },
+      creditText: "iStock",
+      copyrightNotice: "© iStock",
+      license: ISTOCK_LICENSE,
+      acquireLicensePage: ISTOCK_ACQUIRE,
+    };
+  }
+  if (/favicon|apple-touch|logo/i.test(url) || /\/assets\/(?!seo-img|iStock)/i.test(url)) {
+    return {
+      ...base,
+      creator: { "@type": "Organization", name: BRAND_NAME },
+      creditText: BRAND_NAME,
+      copyrightNotice: `© ${BRAND_NAME}`,
+      license: BRAND_CONTACT,
+      acquireLicensePage: BRAND_CONTACT,
+    };
+  }
+  // Fallback: brand (do not invent stock credits)
+  return {
+    ...base,
+    creator: { "@type": "Organization", name: BRAND_NAME },
+    creditText: BRAND_NAME,
+    copyrightNotice: `© ${BRAND_NAME}`,
+    license: BRAND_CONTACT,
+    acquireLicensePage: BRAND_CONTACT,
+  };
+}
+
 export function imageObjects(origin, pageUrl, names) {
   return names.map((n, idx) => ({
     "@type": "ImageObject",
@@ -91,6 +197,6 @@ export function imageObjects(origin, pageUrl, names) {
     width: 1200,
     height: 750,
     caption: IMAGES[n],
-    ...(ISTOCK[n] ? { creditText: "iStock", copyrightNotice: "iStock, licensed" } : { license: "https://www.pexels.com/license/", acquireLicensePage: "https://www.pexels.com/license/" }),
+    ...licensingForSeoName(n),
   }));
 }

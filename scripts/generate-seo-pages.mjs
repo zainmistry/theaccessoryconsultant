@@ -9,7 +9,7 @@
  * Regenerate after the JS/CSS bundle or blog-posts.json changes:
  *   npm run generate:seo
  */
-import { imagesFor, injectImages, imageObjects } from "./seo-images.mjs";
+import { imagesFor, injectImages, imageObjects, brandImageObject, imageObjectForAssetUrl } from "./seo-images.mjs";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -358,7 +358,10 @@ function organizationGraph(pageUrl, page) {
       name: BRAND,
       url: `${ORIGIN}/`,
       description: OFFER_DESCRIPTION,
-      logo: `${ORIGIN}/assets/favicon-192.png`,
+      logo: brandImageObject(ORIGIN, `${ORIGIN}/assets/favicon-192.png`, {
+        id: `${ORIGIN}/#logo`,
+        caption: "The Accessory Consultant logo",
+      }),
       email: EMAIL,
       telephone: PHONE_E164,
       address: {
@@ -375,7 +378,12 @@ function organizationGraph(pageUrl, page) {
       name: BRAND,
       url: `${ORIGIN}/`,
       description: OFFER_DESCRIPTION,
-      image: `${ORIGIN}${OG_IMAGE_PATH}`,
+      image: imageObjectForAssetUrl(ORIGIN, OG_IMAGE_PATH, {
+        id: `${ORIGIN}/#localbusiness-image`,
+        caption: OG_IMAGE_ALT,
+        width: OG_IMAGE_WIDTH,
+        height: OG_IMAGE_HEIGHT,
+      }),
       email: EMAIL,
       telephone: PHONE_E164,
       address: {
@@ -582,7 +590,11 @@ function buildPages() {
 
   for (const post of posts) {
     const pageUrl = canonicalFor(`/blogs/${post.id}`);
-    const image = post.imageUrl?.startsWith("/") ? `${ORIGIN}${post.imageUrl}` : post.imageUrl;
+    const imageUrl = post.imageUrl?.startsWith("/") ? `${ORIGIN}${post.imageUrl}` : post.imageUrl;
+    const image = imageObjectForAssetUrl(ORIGIN, imageUrl || OG_IMAGE_PATH, {
+      id: `${pageUrl}#image`,
+      caption: post.title,
+    });
     pages.push({
       path: `/blogs/${post.id}`,
       title: blogTitle(post, titleCounts),
@@ -725,7 +737,12 @@ function approvedPages() {
             headline: pillar.h1,
             description: pillar.metaDescription,
             datePublished: isDev ? "2026-11-03" : PUBLISHED_ON,
-            image: `${ORIGIN}${OG_IMAGE_PATH}`,
+            image: imageObjectForAssetUrl(ORIGIN, OG_IMAGE_PATH, {
+              id: `${url}#image`,
+              caption: pillar.h1,
+              width: OG_IMAGE_WIDTH,
+              height: OG_IMAGE_HEIGHT,
+            }),
             author: { "@id": `${ORIGIN}/#organization` },
             publisher: { "@id": `${ORIGIN}/#organization` },
             mainEntityOfPage: url,
