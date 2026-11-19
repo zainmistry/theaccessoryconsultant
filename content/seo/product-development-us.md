@@ -17,6 +17,19 @@ Product development is not the same as placing a production order. A production 
 
 Brands that skip these questions often find the answers later, in customer reviews.
 
+## Jewelry product design vs. jewelry product development
+
+The two terms are often used as if they mean the same thing, but they cover different work. **Jewelry product design** is the creative side: the look, proportions, motifs, and how a piece expresses your brand. **Jewelry product development** takes that design and makes it manufacturable, consistent, and ready to reorder. A beautiful design that cannot be cast, set, or worn comfortably is not yet a product.
+
+| Stage | What gets decided | Who leads |
+| --- | --- | --- |
+| **Concept** | Brand story, piece types, material direction, quantity per design | Your brand |
+| **CAD** | Exact geometry, sizes, stone settings, findings, and wall thickness | Our CAD team, approved by you |
+| **Prototype / sample** | Finish, fit, weight feel, clasp function, and stone appearance | Factory, approved by you in writing |
+| **Production** | Repeatable units that match the approved sample | Factory, with QC against the sample |
+
+We do not sell from a catalog. Every piece is manufactured to your own designs, whether you arrive with finished CAD, a sketch, or only reference photos. MOQ starts from 50 units per design, orders start from USD 5,000, typical CAD-to-delivery is about 18 days, and NDAs are offered before you share files.
+
 ## Step 1: Concept
 
 Every program starts with a brief. The brief does not need to be polished. It needs to be clear. A useful concept brief includes:
@@ -125,6 +138,12 @@ Typical CAD-to-delivery is about 18 days. International shipping time to the US 
 
 ### Can you sign an NDA before I share designs?
 Yes. NDAs are offered for private label and OEM programs. Ask for one at the quote stage.
+
+### What is the difference between jewelry product design and development?
+Jewelry product design decides how a piece looks. Jewelry product development turns that design into a manufacturable product through CAD, a physical sample, and a production run that matches the approved sample.
+
+### Is there a minimum order value?
+Yes. Orders start from USD 5,000, with MOQ from 50 units per design. We manufacture only to your own designs and do not sell from a catalog.
 
 ### Which materials can I develop in?
 Solid gold, sterling silver, gold vermeil, gold filled, gold plated, and stainless steel, with natural diamonds, lab-grown diamonds, precious, semi-precious, and artificial stone options.

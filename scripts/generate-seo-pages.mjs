@@ -655,9 +655,9 @@ const PRODUCT_DEV = (() => {
   const faq = [...markdown.slice(faqStart).matchAll(/^### (.+)\n([^\n]+)/gm)].map((m) => [m[1].trim(), m[2].trim()]);
   return {
     path: "/blogs/jewelry-product-development",
-    metaTitle: "Jewelry Product Development for US Brands: CAD to Sample",
+    metaTitle: "Jewelry Product Development: Design, CAD, Sample, Production",
     metaDescription:
-      "Jewelry product development for US brands: concept, sketch, CAD, sampling, materials, QC and production. MOQ from 50 units, about 18 days CAD to delivery.",
+      "Jewelry product development for US brands, built to your own designs: CAD, sample, then production. MOQ from 50 units, ~18 days CAD to delivery, NDAs.",
     h1: markdown.match(/^# (.+)$/m)[1].trim(),
     markdown,
     faq,

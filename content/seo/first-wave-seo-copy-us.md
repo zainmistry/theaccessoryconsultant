@@ -239,7 +239,7 @@ Clarity on the model prevents scope confusion later.
 
 **Custom manufacturing** means we produce to your design brief. You may arrive with sketches, CAD, or physical references. We develop or refine CAD, sample, then produce at our Mumbai factory.
 
-**ODM** means you need design and manufacturing support. The factory helps move from concept to production-ready samples, then into volume. IP and commercial terms should be agreed up front so ownership of developed designs is unambiguous.
+**ODM** means you need design and manufacturing support. The factory helps move from concept to production-ready samples, then into volume. IP and commercial terms should be agreed up front so ownership of developed designs is unambiguous. Our [jewelry product development](/blogs/jewelry-product-development) guide explains what happens at each stage.
 
 You do not need to label your project perfectly in a first email. Describe what you want to sell, who owns the design today, whether the files are confidential, and where you need goods delivered (e.g. United States). We will map that to the right model. Overview of how we work sits on [Services](/services).
 

@@ -512,7 +512,7 @@ Practical habits that work for US startups:
 
 Phone and email both work for early questions: **+91 9152727387** and **info@theaccessoryconsultant.com**. Structured RFQs still belong on [Get a quote](/get-quote) so designs, quantities, and destination travel together.
 
-Low MOQ does not mean low process. The same CAD → sample → production path that larger brands use is what protects a 50-unit run—because a remake at low MOQ still burns cash and calendar you cannot spare.
+Low MOQ does not mean low process. The same CAD → sample → production path that larger brands use is what protects a 50-unit run—because a remake at low MOQ still burns cash and calendar you cannot spare. Our [jewelry product development](/blogs/jewelry-product-development) guide walks through each stage in detail.
 
 ## Restocks: how low MOQ becomes a repeatable system
 
@@ -589,7 +589,7 @@ US brand teams use CAD manufacturing to:
 
 ## Where CAD sits in brand development
 
-Brand development usually moves through market positioning, assortment logic, design language, then productization. CAD is the productization bridge.
+Brand development usually moves through market positioning, assortment logic, design language, then productization. CAD is the productization bridge. For the full stage-by-stage view, from concept to production, see our [jewelry product development](/blogs/jewelry-product-development) guide.
 
 **Before CAD:** concept, references, category mix, price architecture, and channel constraints.  
 **During CAD:** geometry, wearability, stone layout, and manufacturability checks.  
