@@ -26,9 +26,9 @@ US buyers usually fall into one of four groups. **Independent and D2C brands** s
 
 Our [jewelry product development guide](/blogs/jewelry-product-development) explains each stage in detail, and our [manufacturing services](/services) page lists everything we offer.
 
-## Custom jewelry manufacturing by US city
+## Cities we serve
 
-We serve clients across the country remotely. These city guides describe how brands in each market typically work with us:
+We serve clients across the country remotely from Mumbai. These city guides describe how brands in each market typically work with us:
 
 ### Northeast
 
@@ -90,6 +90,7 @@ As a jewelry manufacturer for US brands, we also publish product guides:
 - [Lab-grown diamond jewelry manufacturer](/lab-grown-diamond-jewelry-manufacturer)
 - [Brass and fashion jewelry manufacturer](/brass-fashion-jewelry-manufacturer)
 - [Sterling silver jewelry manufacturer](/sterling-silver-jewelry-manufacturer)
+- [Wholesale wedding band manufacturer for US jewelers](/wholesale-wedding-band-manufacturer)
 
 ## Materials and stones
 

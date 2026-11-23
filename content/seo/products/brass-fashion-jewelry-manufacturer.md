@@ -65,7 +65,7 @@ Fashion jewelry customers still expect pieces to look good after wearing. Talk t
 
 [Austin](/custom-jewelry-manufacturer/austin) and [Los Angeles](/custom-jewelry-manufacturer/los-angeles) brands are trend-driven D2C labels. [Nashville](/custom-jewelry-manufacturer/nashville) boutiques sell Western statement pieces. [Orlando](/custom-jewelry-manufacturer/orlando) retailers stock souvenirs. [New Jersey](/custom-jewelry-manufacturer/new-jersey) wholesalers buy fashion lines for store accounts. [Providence](/custom-jewelry-manufacturer/providence) is the historic home of American costume jewelry. See every market on the [US hub](/custom-jewelry-manufacturer-usa).
 
-Also read our [wholesale guide](/blogs/wholesale-jewelry-manufacturer-for-us-retailers) and [private label guide](/blogs/private-label-jewelry-manufacturer-for-us-brands).
+Also read our [manufacturing services](/services) and [private label guide](/blogs/private-label-jewelry-manufacturer-for-us-brands).
 
 ## Fashion jewelry manufacturer FAQ
 

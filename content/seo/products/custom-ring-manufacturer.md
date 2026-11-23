@@ -25,7 +25,7 @@ Signets, chunky domes and men's rings carry weight and surface area. Face size, 
 Solitaire-style, halo-style and cluster designs set with [semi-precious stones](/stones/semi-precious-stones), [artificial stones](/stones/artificial-stones) or [precious stones](/stones/precious-stones). Setting style affects both look and durability, and we discuss it at the CAD stage.
 
 ### Engagement rings and wedding bands
-For bridal programs we work in [solid gold](/jewelry/solid-gold) with [natural diamonds](/stones/natural-diamonds) or [lab-grown diamonds](/stones/lab-grown-diamonds). See our dedicated [bridal jewelry manufacturer](/bridal-jewelry-manufacturer) page and the [engagement ring case study](/case-studies/1).
+For bridal programs we work in [solid gold](/jewelry/solid-gold) with [natural diamonds](/stones/natural-diamonds) or [lab-grown diamonds](/stones/lab-grown-diamonds). See our dedicated [bridal jewelry manufacturer](/bridal-jewelry-manufacturer) page and the [engagement ring case study](/case-studies/1). Jewelers ordering wedding bands in a size run should use the [wholesale wedding band manufacturer](/wholesale-wedding-band-manufacturer) page. Startups planning a first ring capsule can read the [low MOQ jewelry manufacturer](/blogs/low-moq-jewelry-manufacturer-for-us-startups) guide.
 
 ## Materials for rings
 

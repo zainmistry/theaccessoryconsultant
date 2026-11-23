@@ -32,7 +32,7 @@ Because El Paso uses Mountain time, it is eleven and a half to twelve and a half
 
 ## Small stores, small runs
 
-Many El Paso stores are independent and family-run. Our minimum lets them carry an own-brand range without the inventory burden of large orders. Read our [wholesale guide](/blogs/wholesale-jewelry-manufacturer-for-us-retailers) and [low MOQ guide](/blogs/low-moq-jewelry-manufacturer-for-us-startups).
+Many El Paso stores are independent and family-run. Our minimum lets them carry an own-brand range without the inventory burden of large orders. Read our [manufacturing services](/services) and [low MOQ guide](/blogs/low-moq-jewelry-manufacturer-for-us-startups).
 
 ## El Paso FAQ
 

@@ -320,10 +320,45 @@ export function homeSeoContentHtml() {
         ${figure("cast-jewelry-tree", false)}
         <h2>Materials we manufacture in</h2>
         <p>We work in <a href="/jewelry/silver">sterling silver</a>, <a href="/jewelry/gold-vermeil">gold vermeil</a>, <a href="/jewelry/gold-filled">gold filled</a>, <a href="/jewelry/solid-gold">solid gold</a>, <a href="/jewelry/gold-plated">gold plated</a>, and <a href="/jewelry/stainless-steel">stainless steel</a>, with natural diamonds, lab-grown diamonds, precious, semi-precious, and artificial stone options. Finish is approved on the physical sample. For a closer look at popular D2C materials, read our guides to <a href="/blogs/gold-vermeil-manufacturer-for-us-brands">gold vermeil manufacturing</a> and <a href="/blogs/gold-filled-manufacturer-for-us-d2c-brands">gold filled manufacturing</a>.</p>
-        <h2>Custom jewelry manufacturer for brands across the USA</h2>
-        <p>We serve US clients remotely from our Mumbai factory. See our <a href="/custom-jewelry-manufacturer-usa">custom jewelry manufacturer for US brands</a> page, or the city guides for <a href="/custom-jewelry-manufacturer/new-york">New York</a>, <a href="/custom-jewelry-manufacturer/los-angeles">Los Angeles</a>, <a href="/custom-jewelry-manufacturer/miami">Miami</a>, <a href="/custom-jewelry-manufacturer/chicago">Chicago</a>, <a href="/custom-jewelry-manufacturer/dallas">Dallas</a>, <a href="/custom-jewelry-manufacturer/houston">Houston</a>, <a href="/custom-jewelry-manufacturer/san-francisco">San Francisco</a>, <a href="/custom-jewelry-manufacturer/atlanta">Atlanta</a>, <a href="/custom-jewelry-manufacturer/seattle">Seattle</a>, <a href="/custom-jewelry-manufacturer/las-vegas">Las Vegas</a>, <a href="/custom-jewelry-manufacturer/boston">Boston</a>, <a href="/custom-jewelry-manufacturer/philadelphia">Philadelphia</a>, <a href="/custom-jewelry-manufacturer/new-jersey">New Jersey</a>, <a href="/custom-jewelry-manufacturer/providence">Providence</a> and <a href="/custom-jewelry-manufacturer/texas">Texas</a>.</p>
+        <h2>Cities we serve</h2>
+        <p>We manufacture for US brands from our Mumbai factory and ship to the city on the brief. We do not have a US office. These pages describe how buyers in each market usually work with us:</p>
+        <ul>
+          <li><a href="/custom-jewelry-manufacturer/new-york">New York</a></li>
+          <li><a href="/custom-jewelry-manufacturer/los-angeles">Los Angeles</a></li>
+          <li><a href="/custom-jewelry-manufacturer/miami">Miami</a></li>
+          <li><a href="/custom-jewelry-manufacturer/chicago">Chicago</a></li>
+          <li><a href="/custom-jewelry-manufacturer/dallas">Dallas</a></li>
+          <li><a href="/custom-jewelry-manufacturer/houston">Houston</a></li>
+          <li><a href="/custom-jewelry-manufacturer/san-francisco">San Francisco</a></li>
+          <li><a href="/custom-jewelry-manufacturer/atlanta">Atlanta</a></li>
+          <li><a href="/custom-jewelry-manufacturer/seattle">Seattle</a></li>
+          <li><a href="/custom-jewelry-manufacturer/las-vegas">Las Vegas</a></li>
+          <li><a href="/custom-jewelry-manufacturer/boston">Boston</a></li>
+          <li><a href="/custom-jewelry-manufacturer/philadelphia">Philadelphia</a></li>
+          <li><a href="/custom-jewelry-manufacturer/washington-dc">Washington DC</a></li>
+          <li><a href="/custom-jewelry-manufacturer/phoenix">Phoenix</a></li>
+          <li><a href="/custom-jewelry-manufacturer/san-diego">San Diego</a></li>
+          <li><a href="/custom-jewelry-manufacturer/denver">Denver</a></li>
+          <li><a href="/custom-jewelry-manufacturer/austin">Austin</a></li>
+          <li><a href="/custom-jewelry-manufacturer/nashville">Nashville</a></li>
+          <li><a href="/custom-jewelry-manufacturer/charlotte">Charlotte</a></li>
+          <li><a href="/custom-jewelry-manufacturer/orlando">Orlando</a></li>
+          <li><a href="/custom-jewelry-manufacturer/minneapolis">Minneapolis</a></li>
+          <li><a href="/custom-jewelry-manufacturer/detroit">Detroit</a></li>
+          <li><a href="/custom-jewelry-manufacturer/portland">Portland</a></li>
+          <li><a href="/custom-jewelry-manufacturer/san-antonio">San Antonio</a></li>
+          <li><a href="/custom-jewelry-manufacturer/salt-lake-city">Salt Lake City</a></li>
+          <li><a href="/custom-jewelry-manufacturer/honolulu">Honolulu</a></li>
+          <li><a href="/custom-jewelry-manufacturer/new-jersey">New Jersey</a></li>
+          <li><a href="/custom-jewelry-manufacturer/providence">Providence</a></li>
+          <li><a href="/custom-jewelry-manufacturer/fort-worth">Fort Worth</a></li>
+          <li><a href="/custom-jewelry-manufacturer/el-paso">El Paso</a></li>
+          <li><a href="/custom-jewelry-manufacturer/mcallen">McAllen</a></li>
+          <li><a href="/custom-jewelry-manufacturer/texas">Texas</a></li>
+        </ul>
+        <p>Every city sits on the <a href="/custom-jewelry-manufacturer-usa">custom jewelry manufacturer for US brands</a> hub. New York buyers can start with the <a href="/custom-jewelry-manufacturer/new-york">jewelry manufacturer New York</a> page, and startups can read the <a href="/blogs/low-moq-jewelry-manufacturer-for-us-startups">low MOQ jewelry manufacturer</a> guide.</p>
         <h3>Jewelry manufacturer by product type</h3>
-        <p>As a custom jewelry manufacturer, we publish guides for <a href="/custom-ring-manufacturer">custom rings</a>, <a href="/chain-necklace-manufacturer">chains and necklaces</a>, <a href="/bridal-jewelry-manufacturer">bridal jewelry</a>, <a href="/lab-grown-diamond-jewelry-manufacturer">lab-grown diamond jewelry</a>, <a href="/brass-fashion-jewelry-manufacturer">fashion jewelry</a> and <a href="/sterling-silver-jewelry-manufacturer">sterling silver jewelry</a>.</p>
+        <p>As a custom jewelry manufacturer, we publish guides for <a href="/custom-ring-manufacturer">custom rings</a>, <a href="/wholesale-wedding-band-manufacturer">wholesale wedding bands</a>, <a href="/chain-necklace-manufacturer">chains and necklaces</a>, <a href="/bridal-jewelry-manufacturer">bridal jewelry</a>, <a href="/lab-grown-diamond-jewelry-manufacturer">lab-grown diamond jewelry</a>, <a href="/brass-fashion-jewelry-manufacturer">fashion jewelry</a> and <a href="/sterling-silver-jewelry-manufacturer">sterling silver jewelry</a>.</p>
         <h2>Programs we have delivered</h2>
         <p>Our case studies show the range of work: a <a href="/case-studies/1">luxury engagement ring collection</a> for a US bridal brand, a <a href="/case-studies/2">sterling silver line for an e-commerce startup</a>, <a href="/case-studies/3">a men's jewelry range</a> for a fashion brand, a <a href="/case-studies/4">boutique bridal collection</a> for an independent designer, and <a href="/case-studies/5">high-volume fashion jewelry</a> for a retail chain. Browse <a href="/case-studies">all case studies</a>.</p>
         <h2>Jewelry manufacturing FAQ</h2>

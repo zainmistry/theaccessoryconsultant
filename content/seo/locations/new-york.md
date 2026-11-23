@@ -1,7 +1,7 @@
-title: Custom Jewelry Manufacturer for New York Brands | TAC
-description: Custom jewelry manufacturer for New York fashion labels, D2C brands and wholesalers. MOQ from 50 units, about 18 days CAD to delivery.
+title: Jewelry Manufacturer New York | NYC Brands
+description: Jewelry manufacturer for New York and NYC brands. Mumbai factory, no New York office. MOQ from 50 units, about 18 days CAD to delivery.
 ---
-# Custom jewelry manufacturer for New York brands
+# Jewelry manufacturer for New York and NYC brands
 
 New York is the densest jewelry market in the country. The Diamond District on West 47th Street concentrates dealers, setters and wholesale showrooms on a single block, while the Garment District and SoHo are home to fashion labels that treat jewelry as part of every collection. That mix gives New York buyers a very specific set of expectations: they know what good work looks like, they move to fashion-calendar deadlines, and they compare every supplier against the workshops they can walk into downtown.
 
@@ -38,17 +38,35 @@ Typical CAD-to-delivery is about 18 days. International shipping to New York is 
 
 If you are planning around a market week or a launch date, tell us the date in the brief. We will plan the CAD and sample stages backward from it and be clear about what is realistic. For a full walk-through of concept, CAD, sampling and QC, read our [jewelry product development guide](/blogs/jewelry-product-development). If you are building a line under your own name, see our [private label jewelry manufacturer guide](/blogs/private-label-jewelry-manufacturer-for-us-brands).
 
+## What to send a jewelry manufacturer from New York
+
+New York briefs move faster when the first email already has the production facts. Include:
+
+- Sketches, references, or CAD, and which details are fixed versus still open
+- Metal and, if you set stones, the stone direction. Diamond District buyers who source stones locally should say whether we are making finished jewelry or settings
+- Quantity per design. MOQ starts from 50 units per design, so a five-style capsule is five minimums, not one
+- The New York address the sample should ship to, and where production should ship
+- The date you actually need goods, such as a market week or a lookbook shoot
+
+We do not quote a courier promise inside the city. International shipping time to New York is separate from the about-18-day CAD-to-delivery figure and is confirmed once the method is known.
+
+## When a local workshop fits, and when a factory run fits
+
+A Diamond District or Garment District bench is the right place for a repair, a same-day sizing, or a single showpiece. A factory run is the right place when you need the same piece repeated: a fashion capsule, a vermeil everyday style, or a house wedding band in a size run. Many New York brands use both. Our [wholesale wedding band manufacturer](/wholesale-wedding-band-manufacturer) page is written for jewelers ordering bands in volume. Founders placing a first capsule should read the [low MOQ jewelry manufacturer](/blogs/low-moq-jewelry-manufacturer-for-us-startups) guide before they multiply styles.
+
 ## Related pages
 
 - [Custom jewelry manufacturer for US brands](/custom-jewelry-manufacturer-usa), our national hub
 - [Manufacturing services](/services)
+- [Low MOQ jewelry manufacturer for US startups](/blogs/low-moq-jewelry-manufacturer-for-us-startups)
+- [Wholesale wedding band manufacturer](/wholesale-wedding-band-manufacturer)
 - [Custom jewelry manufacturer guide for US brands](/blogs/custom-jewelry-manufacturer-for-us-brands)
 - [Solid gold and silver custom manufacturing](/blogs/solid-gold-silver-custom-manufacturing-for-us-brands)
 
 ## New York jewelry manufacturing FAQ
 
-### Can I visit your New York office?
-We do not have a New York office. Our factory is in Mumbai and our team serves New York clients remotely by video call, email and phone.
+### Are you a jewelry manufacturer for New York and NYC brands?
+Yes. We manufacture in Mumbai for New York and NYC brands. We do not have a New York office, and we work with you by video, email and phone.
 
 ### Can you produce settings for stones I buy in the Diamond District?
 Talk to us with your stone details at the quote stage. We work with natural and lab-grown diamonds and will confirm how your program can be set up.

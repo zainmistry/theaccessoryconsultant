@@ -266,6 +266,92 @@ for (const loc of locs) {
   }
 }
 
+if (vercel.rewrites?.some((rule) => rule.destination === "/index.html" || rule.source === "/(.*)" || rule.source === "/:path*")) {
+  fail("vercel.json rewrite would serve unknown URLs as the homepage");
+}
+const legacyRedirects = {
+  "/case-studies/orion-jewels.html": "https://theaccessoryconsultant.com/case-studies",
+  "/blog.html": "https://theaccessoryconsultant.com/blogs",
+  "/faq.html": "https://theaccessoryconsultant.com/blogs",
+  "/faqs.html": "https://theaccessoryconsultant.com/blogs",
+  "/testimonials.html": "https://theaccessoryconsultant.com/case-studies",
+  "/cad-design-services.html": "https://theaccessoryconsultant.com/blogs/jewelry-cad-manufacturing-for-brand-development",
+  "/3d-printing-services.html": "https://theaccessoryconsultant.com/process/design",
+  "/jewelry-mold-making-services.html": "https://theaccessoryconsultant.com/process/production",
+  "/jewelry-casting-services.html": "https://theaccessoryconsultant.com/process/production",
+  "/stones-setting-services.html": "https://theaccessoryconsultant.com/stones",
+  "/jewelry-finishing-services.html": "https://theaccessoryconsultant.com/process/production",
+  "/jewelry-engraving-services.html": "https://theaccessoryconsultant.com/process/production",
+  "/jewelry-plating-services.html": "https://theaccessoryconsultant.com/jewelry/gold-plated",
+  "/our-team.html": "https://theaccessoryconsultant.com/about",
+  "/privacy-policy.html": "https://theaccessoryconsultant.com/",
+  "/jewelry-manufacturer-new-york.html": "https://theaccessoryconsultant.com/custom-jewelry-manufacturer/new-york",
+  "/404.html": "https://theaccessoryconsultant.com/",
+  "/404": "/",
+  "/home": "/",
+  "/blog": "/blogs",
+  "/faq": "/blogs",
+  "/testimonials": "/case-studies",
+  "/cad-design-services": "/blogs/jewelry-cad-manufacturing-for-brand-development",
+  "/jewelry-casting-services": "/process/production",
+  "/jewelry-manufacturer-new-york": "/custom-jewelry-manufacturer/new-york",
+  "/blogs/wholesale-jewelry-manufacturer-for-us-retailers": "/services",
+  "/case-studies/orion-jewels": "/case-studies",
+};
+for (const [source, destination] of Object.entries(legacyRedirects)) {
+  const rule = (vercel.redirects || []).find((item) => item.source === source);
+  if (!rule || rule.statusCode !== 301 || rule.destination !== destination) {
+    fail(`missing 301 ${source} -> ${destination}`);
+  }
+}
+const cityDir = path.join(root, "content/seo/locations");
+const citySlugs = fs.readdirSync(cityDir).filter((file) => file.endsWith(".md") && file !== "usa.md").map((file) => file.replace(/\.md$/, ""));
+const hubHtml = read("custom-jewelry-manufacturer-usa.html");
+if (!home.includes("Cities we serve")) fail("homepage missing Cities we serve");
+if (!hubHtml.includes("Cities we serve")) fail("hub missing Cities we serve");
+for (const slug of citySlugs) {
+  const href = `/custom-jewelry-manufacturer/${slug}`;
+  if (!locs.includes(`https://theaccessoryconsultant.com${href}`)) fail(`sitemap missing ${href}`);
+  if (!home.includes(`href="${href}"`)) fail(`homepage missing ${href}`);
+  if (!hubHtml.includes(`href="${href}"`)) fail(`hub missing ${href}`);
+}
+const bands = read("wholesale-wedding-band-manufacturer.html");
+const bandsUrl = "https://theaccessoryconsultant.com/wholesale-wedding-band-manufacturer";
+if (!locs.includes(bandsUrl)) fail("sitemap missing wholesale wedding band page");
+for (const needle of [
+  "<title>Wholesale Wedding Band Manufacturer for US Jewelers</title>",
+  `rel="canonical" href="${bandsUrl}"`,
+  '"@type":"Service"',
+  '"@type":"FAQPage"',
+  'href="/custom-ring-manufacturer"',
+  'href="/custom-jewelry-manufacturer-usa"',
+  'href="/services"',
+  'href="/get-quote"',
+]) {
+  if (!bands.includes(needle)) fail(`wedding band page missing ${needle}`);
+}
+if (!read("custom-ring-manufacturer.html").includes('href="/wholesale-wedding-band-manufacturer"')) {
+  fail("custom ring page missing wedding band link");
+}
+if (!read("bridal-jewelry-manufacturer.html").includes('href="/wholesale-wedding-band-manufacturer"')) {
+  fail("bridal page missing wedding band link");
+}
+if (!services.includes('href="/wholesale-wedding-band-manufacturer"')) fail("services missing wedding band link");
+if (!services.includes('href="/blogs/low-moq-jewelry-manufacturer-for-us-startups"')) fail("services missing low MOQ link");
+if (!services.includes('href="/custom-jewelry-manufacturer/new-york"')) fail("services missing New York link");
+const lowMoq = read("blogs/low-moq-jewelry-manufacturer-for-us-startups.html");
+if (!lowMoq.includes("<title>Low MOQ Jewelry Manufacturer | From 50 Units</title>")) fail("low MOQ title was not sharpened");
+if (!lowMoq.includes("<h1>Low MOQ jewelry manufacturer for US startups</h1>")) fail("low MOQ H1 was not sharpened");
+if (!lowMoq.includes('"@type":"FAQPage"')) fail("low MOQ page missing FAQPage");
+if (!lowMoq.includes("What 50 units per design means")) fail("low MOQ page missing size-run section");
+const nyc = read("custom-jewelry-manufacturer/new-york.html");
+if (!nyc.includes("<title>Jewelry Manufacturer New York | NYC Brands</title>")) fail("New York title was not sharpened");
+if (!nyc.includes("<h1>Jewelry manufacturer for New York and NYC brands</h1>")) fail("New York H1 was not sharpened");
+if (!nyc.includes('href="/blogs/low-moq-jewelry-manufacturer-for-us-startups"')) fail("New York page missing low MOQ link");
+if (!nyc.includes('href="/wholesale-wedding-band-manufacturer"')) fail("New York page missing wedding band link");
+if (!home.includes('href="/blogs/low-moq-jewelry-manufacturer-for-us-startups"')) fail("homepage missing low MOQ link");
+if (!home.includes('href="/custom-jewelry-manufacturer/new-york"')) fail("homepage missing New York link");
+
 function contentType(filePath) {
   if (filePath.endsWith(".txt")) return "text/plain; charset=utf-8";
   if (filePath.endsWith(".xml")) return "application/xml; charset=utf-8";

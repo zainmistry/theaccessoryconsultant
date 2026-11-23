@@ -17,7 +17,7 @@ Philadelphia buyers ask us about bridal more than anything else, so here is how 
 4. **Sample.** A physical sample ships to Philadelphia. Check setting, profile and finish.
 5. **Production.** Pieces are made and checked against the approved sample.
 
-MOQ starts from 50 units per design, which suits a store that wants to stock a house mounting style rather than special-order every ring. For more, read our [bridal jewelry manufacturer page](/bridal-jewelry-manufacturer) and the [engagement ring case study](/case-studies/1).
+MOQ starts from 50 units per design, which suits a store that wants to stock a house mounting style rather than special-order every ring. For more, read our [bridal jewelry manufacturer page](/bridal-jewelry-manufacturer), the [wholesale wedding band manufacturer](/wholesale-wedding-band-manufacturer) page, and the [engagement ring case study](/case-studies/1).
 
 ## Beyond the Row
 
