@@ -19,7 +19,7 @@ The headline terms:
 Solitaire, halo, three-stone, pavé band, hidden halo and vintage-inspired styles. We produce complete rings or semi-mounts, depending on how you sell. Tell us which in the brief.
 
 ### Wedding bands
-Plain bands, comfort-fit bands, diamond eternity and half-eternity bands, and matching bands contoured to sit against a specific engagement ring.
+Plain bands, comfort-fit bands, diamond eternity and half-eternity bands, and matching bands contoured to sit against a specific engagement ring. For jewelers and retailers ordering those bands in volume, see the [wholesale wedding band manufacturer](/wholesale-wedding-band-manufacturer) page.
 
 ### Bridal sets
 Engagement ring and band designed together so they sit flush. Matching sets are checked together in CAD and on the sample.

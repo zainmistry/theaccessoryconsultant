@@ -23,7 +23,7 @@ Each reorder is made against the approved sample. See our [bridal jewelry manufa
 
 ## Wholesale and flea-market sellers
 
-Many Valley sellers buy in volume for resale. MOQ starts from 50 units per design, so a seller can carry a broad assortment of styles. Our [wholesale guide](/blogs/wholesale-jewelry-manufacturer-for-us-retailers) explains how to plan an assortment.
+Many Valley sellers buy in volume for resale. MOQ starts from 50 units per design, so a seller can carry a broad assortment of styles. Our [manufacturing services](/services) page explains how a volume assortment is quoted. Wedding bands ordered for the case are covered on the [wholesale wedding band manufacturer](/wholesale-wedding-band-manufacturer) page.
 
 ## Logistics
 

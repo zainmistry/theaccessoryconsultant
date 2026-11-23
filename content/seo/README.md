@@ -16,6 +16,7 @@ These URLs are standalone HTML. They include the approved article (or a factual 
 - `/blogs/jewelry-manufacturer-for-d2c-brands-us`
 - `/blogs/solid-gold-silver-custom-manufacturing-for-us-brands`
 - `/blogs/how-to-get-a-jewelry-manufacturing-quote-rfq-guide-us`
+- `/wholesale-wedding-band-manufacturer`
 - `/jewelry` and `/stones` (indexes of the material and stone pages that already exist)
 
 `/jewelry/earrings`, `/jewelry/rings`, `/jewelry/necklaces`, `/jewelry/bracelets`, and `/jewelry/sets` 301 to `/jewelry`. Those category URLs are not routes in the bundle. The hub does not add material claims beyond the approved copy.

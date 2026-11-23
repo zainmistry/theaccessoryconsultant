@@ -369,18 +369,18 @@ Clear model, clear specs, clear sample approval—then production in Mumbai with
 **Slug:** `/blogs/low-moq-jewelry-manufacturer-for-us-startups`
 
 ### Meta title (≤60)
-Low MOQ Jewelry Manufacturer: Start From 50 Units
+Low MOQ Jewelry Manufacturer | From 50 Units
 
-*(50 chars)*
+*(44 chars)*
 
 ### Meta description (≤155)
-Launch your jewelry line with a low MOQ from 50 units per design. CAD, sample and production in about 18 days for US startups and D2C brands.
+Low MOQ jewelry manufacturer for US startups. MOQ from 50 units per design, about 18 days CAD to delivery, NDAs offered.
 
-*(133 chars)*
+*(120 chars)*
 
 ### Article
 
-# Low MOQ Jewelry Manufacturer for US Startups & D2C Brands
+# Low MOQ jewelry manufacturer for US startups
 
 For US startups and D2C jewelry brands, minimum order quantity is often the first filter—not because low MOQ is a marketing slogan, but because cash, storage, and assortment risk are real. You need enough units to launch and learn, without locking capital into inventory you cannot move.
 
@@ -430,7 +430,7 @@ A practical first-capsule pattern for US D2C:
 
 1. **Limit SKU count.** Three to six styles at MOQ depth often teaches more than fifteen styles at thin inventory.  
 2. **Choose one material story.** Mixing solid gold, vermeil, and plated in one tiny first order complicates QC and customer messaging.  
-3. **Pick categories you can photograph and fulfill well.** See [Jewelry](/jewelry) and category pages such as [Jewelry earrings](/jewelry/earrings) or [Jewelry necklaces](/jewelry/necklaces) when planning assortment.  
+3. **Pick categories you can photograph and fulfill well.** [Custom rings](/custom-ring-manufacturer), [chains and necklaces](/chain-necklace-manufacturer) and [bridal jewelry](/bridal-jewelry-manufacturer) are the usual first capsules. Jewelers who need bands in a size run should read the [wholesale wedding band manufacturer](/wholesale-wedding-band-manufacturer) page.  
 4. **Plan restock of winners.** Keep CAD and approved sample records so reorder finish matches launch.  
 5. **Build the calendar backward** from your US launch date: CAD-to-delivery (~18 days typical), plus your content, packing, and shipping once destination is set.
 
@@ -527,6 +527,40 @@ To make restocks clean:
 5. Brief restocks as OEM-style production to locked specs when designs are stable; keep NDA in place if files remain confidential (NDAs available for private label and OEM).
 
 Wholesalers and retailers evaluating your line will care that you can replenish. Low MOQ gets you into market; restock discipline keeps you there. Category pages under [Jewelry](/jewelry) help you plan which silhouettes deserve depth next.
+
+## What 50 units per design means when sizes are involved
+
+"Per design" is the phrase that gets misread. One ring style is one design. Fifty units of that style can be split across US sizes: some size 6, some size 7, some size 8. It is not 50 units of every size. A necklace with one pendant is one design even if you offer two chain lengths, as long as you tell us the split. A second pendant, a different width, or a different stone layout is a second design with its own minimum.
+
+Write the split in the quote: units per size or per variant, adding up to at least 50 for that design. If a layout will not scale to the small or large end, we catch that in CAD rather than after the run is cast. Our [custom ring manufacturer](/custom-ring-manufacturer) page goes further on size runs. [New York](/custom-jewelry-manufacturer/new-york) founders often hit this on the first capsule, because a lookbook shows one size and the site has to sell several.
+
+## A first order that teaches you something
+
+A useful first order is small on purpose.
+
+- Three to five styles, not fifteen. Each style still has to clear the minimum, so breadth gets expensive fast.
+- One metal story. Mixing solid gold, vermeil and plated in the same tiny launch makes the sample review and the customer explanation harder.
+- One person who can approve the sample in writing. Conflicting notes from a founder and a contractor are how a 50-unit run gets remade.
+- A restock plan for the style that sells. Keep the approved CAD version and the sample notes. The second order should name those, not the original mood board.
+
+[New York and NYC brands](/custom-jewelry-manufacturer/new-york) often use the minimum for a fashion capsule beside an apparel drop. A jeweler stocking one house band uses the same minimum as a size run, which is covered on the [wholesale wedding band](/wholesale-wedding-band-manufacturer) page. Either way, the factory path is CAD, a physical sample, then production checked against that sample.
+
+## Low MOQ jewelry manufacturer FAQ
+
+### What is your low MOQ?
+MOQ starts from 50 units per design. A different style is a different design.
+
+### Does 50 units mean 50 of every size?
+No. Fifty units of one design can be split across sizes. Tell us how many units of each size in the brief.
+
+### How long does a low MOQ order take?
+About 18 days from CAD to delivery for a typical program. Shipping time to the US is separate and depends on destination and method.
+
+### Do startups need an NDA?
+NDAs are offered for private label and OEM programs. Ask before you send unreleased design files.
+
+### Can I start without CAD?
+Yes. Sketches, reference photos or a written brief are enough to start. We build the CAD and you approve it before the sample.
 
 ## Soft next step
 

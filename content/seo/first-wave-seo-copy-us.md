@@ -82,6 +82,8 @@ Our manufacturing covers core jewelry categories and materials used in commercia
 
 Lead time can vary with design complexity, material and stone selection, revisions during sampling, and production volume. We confirm timelines when we review your brief and quote. Shipping destination (including US delivery address or port of entry preference) should be stated in your RFQ so logistics can be discussed against your actual route—without assuming a fixed transit SLA.
 
+Read the [low MOQ jewelry manufacturer](/blogs/low-moq-jewelry-manufacturer-for-us-startups) guide for a first capsule. [New York and NYC brands](/custom-jewelry-manufacturer/new-york) can start there, and jewelers ordering bands in volume can see the [wholesale wedding band manufacturer](/wholesale-wedding-band-manufacturer) page.
+
 ### H2: CAD & sampling
 Most programs follow a three-stage path:
 

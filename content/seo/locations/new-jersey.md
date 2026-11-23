@@ -33,7 +33,7 @@ New Jersey's South Asian retailers sell bridal and festive jewelry to a demandin
 - Bridal sets and festive pieces
 - Private label collections for NYC brands
 
-See our [wholesale guide](/blogs/wholesale-jewelry-manufacturer-for-us-retailers) and [fashion jewelry manufacturing page](/brass-fashion-jewelry-manufacturer).
+See our [manufacturing services](/services) and [fashion jewelry manufacturing page](/brass-fashion-jewelry-manufacturer).
 
 ## Time zone
 

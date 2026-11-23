@@ -667,6 +667,16 @@ if (PRODUCT_DEV.metaTitle.length > 60) throw new Error(`Product development titl
 if (PRODUCT_DEV.metaDescription.length > 155) throw new Error(`Product development description too long`);
 if (PRODUCT_DEV.faq.length < 4) throw new Error("Product development FAQ not parsed");
 
+function faqFromMarkdown(markdown) {
+  const faqStart = markdown.search(/^## .*FAQ.*$/m);
+  if (faqStart < 0) return [];
+  const faqBlock = markdown.slice(faqStart).split(/\n## /)[0];
+  return [...faqBlock.matchAll(/^### (.+)\n([^\n]+)/gm)].map((m) => [
+    m[1].trim(),
+    m[2].trim().replace(/\[([^\]]+)\]\([^)]+\)/g, "$1"),
+  ]);
+}
+
 function relatedGuidesMarkdown(selfPath) {
   const others = GUIDES.filter(([href]) => href !== selfPath);
   const start = Math.max(0, GUIDES.findIndex(([href]) => href === selfPath));
@@ -718,6 +728,19 @@ function approvedPages() {
           })),
         },
       );
+    }
+    if (pillar.path === "/blogs/low-moq-jewelry-manufacturer-for-us-startups") {
+      const faq = faqFromMarkdown(pillar.markdown);
+      if (faq.length < 4) throw new Error(`low MOQ FAQ not parsed (${faq.length})`);
+      extraGraph.push({
+        "@type": "FAQPage",
+        "@id": `${url}#faq`,
+        mainEntity: faq.map(([q, a]) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: { "@type": "Answer", text: a },
+        })),
+      });
     }
     return {
       path: pillar.path,
@@ -858,6 +881,7 @@ const PRODUCT_PILLARS = [
   "lab-grown-diamond-jewelry-manufacturer",
   "brass-fashion-jewelry-manufacturer",
   "sterling-silver-jewelry-manufacturer",
+  "wholesale-wedding-band-manufacturer",
 ];
 const LOCATIONS_LASTMOD = "2026-11-04";
 
@@ -935,12 +959,17 @@ function locationPages() {
       extraGraph,
     }).replace('<article class="seo-approved">', `<section id="seo-content" aria-label="${esc(copy.h1)}"><article class="seo-approved">`).replace("    </article>\n", "    </article></section>\n");
     if (!html.includes('id="seo-content"') || !html.includes("</article></section>")) throw new Error(`seo-content wrap failed for ${def.path}`);
+    const refreshed = new Set([
+      "/custom-jewelry-manufacturer-usa",
+      "/custom-jewelry-manufacturer/new-york",
+      "/custom-jewelry-manufacturer/philadelphia",
+    ]);
     return {
       path: def.path,
       title: copy.title,
       description: copy.description,
       indexable: true,
-      lastmod: LOCATIONS_LASTMOD,
+      lastmod: refreshed.has(def.path) ? "2026-11-23" : LOCATIONS_LASTMOD,
       ogType: "website",
       crawlableHtml: html,
     };
@@ -992,7 +1021,8 @@ function productPages() {
       .replace('<article class="seo-approved">', `<section id="seo-content" aria-label="${esc(copy.h1)}"><article class="seo-approved">`)
       .replace("    </article>\n", "    </article></section>\n");
     if (!html.includes("</article></section>")) throw new Error(`seo-content wrap failed for ${pagePath}`);
-    return { path: pagePath, title: copy.title, description: copy.description, indexable: true, lastmod: LOCATIONS_LASTMOD, ogType: "website", crawlableHtml: html };
+    const lastmod = slug === "wholesale-wedding-band-manufacturer" ? "2026-11-23" : LOCATIONS_LASTMOD;
+    return { path: pagePath, title: copy.title, description: copy.description, indexable: true, lastmod, ogType: "website", crawlableHtml: html };
   });
 }
 

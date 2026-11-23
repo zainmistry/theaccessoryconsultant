@@ -83,6 +83,91 @@
       "statusCode": 301
     },
     {
+      "source": "/case-studies/orion-jewels.html",
+      "destination": "https://theaccessoryconsultant.com/case-studies",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog.html",
+      "destination": "https://theaccessoryconsultant.com/blogs",
+      "statusCode": 301
+    },
+    {
+      "source": "/faq.html",
+      "destination": "https://theaccessoryconsultant.com/blogs",
+      "statusCode": 301
+    },
+    {
+      "source": "/faqs.html",
+      "destination": "https://theaccessoryconsultant.com/blogs",
+      "statusCode": 301
+    },
+    {
+      "source": "/testimonials.html",
+      "destination": "https://theaccessoryconsultant.com/case-studies",
+      "statusCode": 301
+    },
+    {
+      "source": "/cad-design-services.html",
+      "destination": "https://theaccessoryconsultant.com/blogs/jewelry-cad-manufacturing-for-brand-development",
+      "statusCode": 301
+    },
+    {
+      "source": "/3d-printing-services.html",
+      "destination": "https://theaccessoryconsultant.com/process/design",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry-mold-making-services.html",
+      "destination": "https://theaccessoryconsultant.com/process/production",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry-casting-services.html",
+      "destination": "https://theaccessoryconsultant.com/process/production",
+      "statusCode": 301
+    },
+    {
+      "source": "/stones-setting-services.html",
+      "destination": "https://theaccessoryconsultant.com/stones",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry-finishing-services.html",
+      "destination": "https://theaccessoryconsultant.com/process/production",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry-engraving-services.html",
+      "destination": "https://theaccessoryconsultant.com/process/production",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry-plating-services.html",
+      "destination": "https://theaccessoryconsultant.com/jewelry/gold-plated",
+      "statusCode": 301
+    },
+    {
+      "source": "/our-team.html",
+      "destination": "https://theaccessoryconsultant.com/about",
+      "statusCode": 301
+    },
+    {
+      "source": "/privacy-policy.html",
+      "destination": "https://theaccessoryconsultant.com/",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry-manufacturer-new-york.html",
+      "destination": "https://theaccessoryconsultant.com/custom-jewelry-manufacturer/new-york",
+      "statusCode": 301
+    },
+    {
+      "source": "/404.html",
+      "destination": "https://theaccessoryconsultant.com/",
+      "statusCode": 301
+    },
+    {
       "source": "/:path(.*)\\.html",
       "destination": "https://theaccessoryconsultant.com/",
       "statusCode": 301
@@ -177,6 +262,151 @@
     {
       "source": "/jewelry/sets/",
       "destination": "/jewelry",
+      "statusCode": 301
+    },
+    {
+      "source": "/404",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/home1",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/index.htm",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/index_l.htm",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog",
+      "destination": "/blogs",
+      "statusCode": 301
+    },
+    {
+      "source": "/faq",
+      "destination": "/blogs",
+      "statusCode": 301
+    },
+    {
+      "source": "/faqs",
+      "destination": "/blogs",
+      "statusCode": 301
+    },
+    {
+      "source": "/testimonials",
+      "destination": "/case-studies",
+      "statusCode": 301
+    },
+    {
+      "source": "/our-team",
+      "destination": "/about",
+      "statusCode": 301
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact-2",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact-the-accessory-consultant",
+      "destination": "/contact",
+      "statusCode": 301
+    },
+    {
+      "source": "/cad-design-services",
+      "destination": "/blogs/jewelry-cad-manufacturing-for-brand-development",
+      "statusCode": 301
+    },
+    {
+      "source": "/3d-printing-services",
+      "destination": "/process/design",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry-mold-making-services",
+      "destination": "/process/production",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry-casting-services",
+      "destination": "/process/production",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry-finishing-services",
+      "destination": "/process/production",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry-engraving-services",
+      "destination": "/process/production",
+      "statusCode": 301
+    },
+    {
+      "source": "/stones-setting-services",
+      "destination": "/stones",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry-plating-services",
+      "destination": "/jewelry/gold-plated",
+      "statusCode": 301
+    },
+    {
+      "source": "/plating",
+      "destination": "/jewelry/gold-plated",
+      "statusCode": 301
+    },
+    {
+      "source": "/gold-filled-jewelry",
+      "destination": "/jewelry/gold-filled",
+      "statusCode": 301
+    },
+    {
+      "source": "/fashion-jewelry",
+      "destination": "/brass-fashion-jewelry-manufacturer",
+      "statusCode": 301
+    },
+    {
+      "source": "/wedding-jewelry-ideas",
+      "destination": "/bridal-jewelry-manufacturer",
+      "statusCode": 301
+    },
+    {
+      "source": "/jewelry-manufacturer-new-york",
+      "destination": "/custom-jewelry-manufacturer/new-york",
+      "statusCode": 301
+    },
+    {
+      "source": "/service-:n(\\d+)",
+      "destination": "/services",
+      "statusCode": 301
+    },
+    {
+      "source": "/blogs/wholesale-jewelry-manufacturer-for-us-retailers",
+      "destination": "/services",
+      "statusCode": 301
+    },
+    {
+      "source": "/case-studies/orion-jewels",
+      "destination": "/case-studies",
       "statusCode": 301
     }
   ],
