@@ -31,7 +31,7 @@ For colour and sparkle, choose [artificial stones](/stones/artificial-stones) or
 
 ## What fashion brands make with us
 
-- **Statement earrings:** hoops, drops, ear cuffs and clip styles
+- **Statement earrings:** hoops, drops, ear cuffs and clip styles (see our [custom earring manufacturer](/custom-earring-manufacturer) page)
 - **Layering necklaces:** chains, charms and pendants (see our [chain and necklace manufacturer](/chain-necklace-manufacturer) page)
 - **Stackable rings:** bands and stone-set fashion rings
 - **Bracelets and anklets:** chain, cuff and bangle styles

@@ -19,7 +19,7 @@ Commercial terms:
 
 **Tennis bracelets and necklaces.** Line designs where stone matching and setting consistency are critical.
 
-**Stud and huggie earrings.** Everyday diamond earrings are a common entry product for D2C brands.
+**Stud and huggie earrings.** Everyday diamond earrings are a common entry product for D2C brands. See our [custom earring manufacturer](/custom-earring-manufacturer) page for closures, sizing and earring capsules.
 
 **Pendants.** Solitaire pendants, initials and charm designs.
 

@@ -16,7 +16,7 @@ Our terms:
 ## Silver product categories
 
 ### Everyday minimal pieces
-Thin bands, small hoops, fine chains and simple pendants. These are bestsellers for D2C brands and need precise, consistent finishing.
+Thin bands, small hoops, fine chains and simple pendants. These are bestsellers for D2C brands and need precise, consistent finishing. For silver studs, huggies and hoops, see our [custom earring manufacturer](/custom-earring-manufacturer) page.
 
 ### Statement and Western silver
 Wide cuffs, concho-inspired pendants, heavy rings and stone-set pieces. Weight and detail are checked in CAD and on the sample.

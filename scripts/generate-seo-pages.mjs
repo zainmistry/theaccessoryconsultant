@@ -882,6 +882,7 @@ const PRODUCT_PILLARS = [
   "brass-fashion-jewelry-manufacturer",
   "sterling-silver-jewelry-manufacturer",
   "wholesale-wedding-band-manufacturer",
+  "custom-earring-manufacturer",
 ];
 const LOCATIONS_LASTMOD = "2026-11-04";
 
@@ -1021,7 +1022,8 @@ function productPages() {
       .replace('<article class="seo-approved">', `<section id="seo-content" aria-label="${esc(copy.h1)}"><article class="seo-approved">`)
       .replace("    </article>\n", "    </article></section>\n");
     if (!html.includes("</article></section>")) throw new Error(`seo-content wrap failed for ${pagePath}`);
-    const lastmod = slug === "wholesale-wedding-band-manufacturer" ? "2026-11-23" : LOCATIONS_LASTMOD;
+    const PRODUCT_LASTMOD = { "wholesale-wedding-band-manufacturer": "2026-11-23", "custom-earring-manufacturer": "2026-11-25", "lab-grown-diamond-jewelry-manufacturer": "2026-11-25", "brass-fashion-jewelry-manufacturer": "2026-11-25", "sterling-silver-jewelry-manufacturer": "2026-11-25" };
+    const lastmod = PRODUCT_LASTMOD[slug] || LOCATIONS_LASTMOD;
     return { path: pagePath, title: copy.title, description: copy.description, indexable: true, lastmod, ogType: "website", crawlableHtml: html };
   });
 }

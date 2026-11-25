@@ -91,6 +91,7 @@ As a jewelry manufacturer for US brands, we also publish product guides:
 - [Brass and fashion jewelry manufacturer](/brass-fashion-jewelry-manufacturer)
 - [Sterling silver jewelry manufacturer](/sterling-silver-jewelry-manufacturer)
 - [Wholesale wedding band manufacturer for US jewelers](/wholesale-wedding-band-manufacturer)
+- [Custom earring manufacturer for US brands](/custom-earring-manufacturer)
 
 ## Materials and stones
 
