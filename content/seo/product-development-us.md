@@ -106,7 +106,7 @@ Clear expectations up front prevent disputes later.
 
 Once the sample is approved, the design moves into production. MOQ starts from 50 units per design, so a new brand can test a capsule without committing to a large order. Typical CAD-to-delivery is about 18 days. International shipping time to the US is separate and is confirmed once the destination and shipping method are known.
 
-When a design sells, reorders follow the same approved sample and spec. That is what keeps the product consistent across runs. If you plan to scale, tell us your expected reorder pattern early so the program can be planned around it. Our [low MOQ guide](/blogs/low-moq-jewelry-manufacturer-for-us-startups) covers how to plan a first order.
+When a design sells, reorders follow the same approved sample and spec. That is what keeps the product consistent across runs. If you plan to scale, tell us your expected reorder pattern early so the program can be planned around it. If you want a long-term contract manufacturing setup, see how US brands work with a [custom jewelry manufacturer as a production partner](/blogs/custom-jewelry-manufacturer-for-us-brands). Our [low MOQ guide](/blogs/low-moq-jewelry-manufacturer-for-us-startups) covers how to plan a first order.
 
 ## Confidentiality during development
 

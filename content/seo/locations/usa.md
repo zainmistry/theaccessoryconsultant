@@ -24,7 +24,7 @@ US buyers usually fall into one of four groups. **Independent and D2C brands** s
 5. **Production:** pieces are made and checked against the approved sample.
 6. **Shipping:** finished goods are packed and shipped to your US address.
 
-Our [jewelry product development guide](/blogs/jewelry-product-development) explains each stage in detail, and our [manufacturing services](/services) page lists everything we offer.
+Our [jewelry product development guide](/blogs/jewelry-product-development) explains each stage in detail, our guide on [how US brands work with a custom jewelry manufacturer](/blogs/custom-jewelry-manufacturer-for-us-brands) covers contract manufacturing terms, MOQ and NDAs, and our [manufacturing services](/services) page lists everything we offer.
 
 ## Cities we serve
 

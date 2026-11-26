@@ -386,7 +386,7 @@ For US startups and D2C jewelry brands, minimum order quantity is often the firs
 
 The Accessory Consultant is a low MOQ jewelry manufacturer based in Mumbai, India, with **MOQ from 50 units**, serving US startups, D2C labels, brands, wholesalers, and retailers. This guide explains how low MOQ works in a factory setting, how to structure a first capsule, how CAD and sampling protect limited budgets, and how to brief an RFQ—including US delivery destination—without relying on invented shipping SLAs or prices.
 
-Capability overview: [Services](/services). Quote path: [Get a quote](/get-quote). Existing case studies and blog posts on the site remain; this pillar is written for early-stage US buyers evaluating low MOQ manufacturing.
+Capability overview: [Services](/services). Quote path: [Get a quote](/get-quote). If you are comparing factories beyond MOQ, read [how US brands choose a custom jewelry manufacturer](/blogs/custom-jewelry-manufacturer-for-us-brands). This pillar is written for early-stage US buyers evaluating low MOQ manufacturing.
 
 ## What “low MOQ” means in commercial jewelry manufacturing
 

@@ -187,24 +187,24 @@ Use the form above for structured RFQs, or reach out directly with files, quanti
 **Slug:** `blogs/custom-jewelry-manufacturer-for-us-brands`
 
 ### Meta title (≤60)
-Custom Jewelry Manufacturer for US Brands | MOQ 50
+Custom Jewelry Manufacturer for US Brands | 50 MOQ, 18 Days
 
-*(55 chars)*
+*(59 chars)*
 
 ### Meta description (≤155)
-Custom jewelry manufacturer for US brands: your design in CAD, a sample to approve, then production from 50 units in about 18 days. NDAs offered.
+Custom jewelry manufacturer and contract manufacturing partner for US brands. MOQ from 50 units, about 18 days CAD to delivery, NDAs offered. Get a quote.
 
-*(146 chars)*
+*(154 chars)*
 
 ### Article (~1500–2000 words)
 
-# How US Brands Work With a Custom Jewelry Manufacturer in India
+# Custom Jewelry Manufacturer for US Brands: How It Works
 
-Choosing a custom jewelry manufacturer is a commercial decision, not only a creative one. US brands, wholesalers, retailers, and D2C labels need a factory that can turn a design into repeatable product—at a workable MOQ, in a realistic timeline, with clear rules around confidentiality when the line is private label or OEM.
+Choosing a custom jewelry manufacturer is a commercial decision for US brands, not only a creative one. Brands, wholesalers, retailers, and D2C labels need a factory that can turn a design into repeatable product—at a workable MOQ, in a realistic timeline, with clear rules around confidentiality when the line is private label or OEM.
 
 The Accessory Consultant is a custom jewelry manufacturer in Mumbai, India, serving brands, wholesalers, retailers, D2C businesses, and individuals—including US buyers sourcing production from India. This guide explains how those factory engagements typically work: what to prepare, how CAD and sampling reduce risk, what MOQ and lead times mean in practice, when an NDA belongs in the conversation, and how to brief shipping destination without relying on invented transit promises.
 
-If you already know you need production capacity, go to [Services](/services) or [Get a quote](/get-quote). Existing case studies and blog posts remain on the site; this pillar adds a US-buyer-oriented guide alongside them.
+If you already know you need production capacity, go to [Services](/services) or [Get a quote](/get-quote). For an overview of who we make for and the cities we serve, see our [custom jewelry manufacturer USA hub](/custom-jewelry-manufacturer-usa); for earrings specifically, see our [custom earring manufacturer](/custom-earring-manufacturer) page.
 
 ## What “custom jewelry manufacturer” means for US B2B buyers
 
@@ -244,6 +244,18 @@ Clarity on the model prevents scope confusion later.
 **ODM** means you need design and manufacturing support. The factory helps move from concept to production-ready samples, then into volume. IP and commercial terms should be agreed up front so ownership of developed designs is unambiguous. Our [jewelry product development](/blogs/jewelry-product-development) guide explains what happens at each stage.
 
 You do not need to label your project perfectly in a first email. Describe what you want to sell, who owns the design today, whether the files are confidential, and where you need goods delivered (e.g. United States). We will map that to the right model. Overview of how we work sits on [Services](/services).
+
+## Working with us as a contract jewelry manufacturing partner
+
+Some US brands do not need design help; they need a reliable jewelry manufacturing partner that produces their line to spec, run after run. That is contract jewelry manufacturing: you own the designs and the brand, and the factory owns production. In practice, working with The Accessory Consultant as a contract manufacturer looks like this:
+
+- **You send the brief:** designs or CAD, materials, quantities per style, and your US delivery destination. An NDA can be signed first for private label and OEM programs.
+- **We confirm feasibility:** we flag anything that is hard to make as drawn before you commit, and agree quantities from the MOQ of 50 units per design.
+- **You approve a sample:** the approved sample and written specs become the production reference.
+- **We produce and check against it:** typical CAD-to-delivery is about 18 days, confirmed on the quote for your brief.
+- **Reorders follow the same reference:** when a style sells, restocks are made to the same approved sample, so your line stays consistent.
+
+The split of responsibility is simple: your team handles brand, design approval, and sales; we handle CAD support, sampling, and production as your jewelry production partner in Mumbai.
 
 ## The production path: CAD → sample → production
 
